@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.8",
     "eslint-config-prettier": "^3.4.0",

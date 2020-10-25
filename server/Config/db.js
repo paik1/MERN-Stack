@@ -12,7 +12,7 @@ const connectDB = async () => {
         useFindAndModify: false,
         useUnifiedTopology: true,
       })
-      .then(() => console.log('Finally Connected to the DB'))
+      .then(() => console.log('Connected to the DB'))
   } catch (e) {
     console.error('Error Occured while connecting to the DB', e)
   }

@@ -1,5 +1,4 @@
 import checkObjectId from '../utils/checkObjectId'
-
 const express = require('express')
 const router = express.Router()
 const {
@@ -8,6 +7,7 @@ const {
   getDelaerById,
   getAllDealers,
   deleteById,
+  updateById,
 } = require('../services/dealers')
 
 // POST /v1/api/dealers/single
@@ -82,9 +82,23 @@ router.delete('/:id', checkObjectId('id'), async (req, res) => {
 })
 
 // PUT /v1/api/dealers/:id
-router.put('/:id', async (req, res) => {
+router.put('/:id', checkObjectId('id'), async (req, res) => {
   try {
-  } catch (error) {}
+    const result = await updateById(req.params.id, req.body)
+    console.log(result);
+    if (result) {
+      return res
+        .status(200)
+        .json({ message: `${req.params.id} details updated successfully` })
+    } else {
+      return res
+        .status(400)
+        .json({ error: `Failed to update ${req.params.id} details` })
+    }
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server Error')
+  }
 })
 
 export default router
