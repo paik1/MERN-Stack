@@ -5,16 +5,16 @@ const connectionString =
 
 const connectDB = async () => {
   try {
-    await mongoose
-      .connect(connectionString, {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true,
-      })
-      .then(() => console.log('Connected to the DB'))
+    const con = await mongoose.connect(connectionString, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
+    })
+    console.log(`Connected to Cluster: ${con.connection.host}`)
   } catch (e) {
     console.error('Error Occured while connecting to the DB', e)
+    process.exit(1)
   }
 }
 
