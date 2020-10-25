@@ -3,7 +3,6 @@
 import Dealer from '../models/Dealers'
 
 export const saveOne = async (dealerObj) => {
-  console.log(dealerObj.body)
   const obj = new Dealer({
     name: dealerObj.body.name,
     address: dealerObj.body.address,
