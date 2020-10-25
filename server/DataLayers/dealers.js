@@ -3,25 +3,20 @@
 import Dealer from '../models/Dealers'
 
 export const saveOne = async (dealerObj) => {
-  const obj = new Dealer({
-    name: dealerObj.body.name,
-    address: dealerObj.body.address,
-    email: dealerObj.body.email,
-    contact: {
-      primary: dealerObj.body.contact.primary,
-      secondary: dealerObj.body.contact.secondary,
-    },
-  })
-  return await obj.save()
+  return (await Dealer.collection.insertOne(dealerObj)).insertedId
 }
 
-const saveMany = (dealerArrayObj) => {
-  return 'I too working'
+export const saveMany = async (dealerArrayObj) => {
+  return (await Dealer.collection.insertMany(dealerArrayObj)).insertedIds
 }
 
-const getOne = (dealerId) => {}
+export const getOne = async (dealerId) => {
+  return await Dealer.findById(dealerId)
+}
 
-const getMany = () => {}
+export const getMany = async () => {
+  return await Dealer.find({})
+}
 
 const update = (dealerObj) => {}
 
