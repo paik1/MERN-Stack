@@ -1,13 +1,14 @@
-const express = require('express');
-const connectDB = require('./config/db');
+import express from 'express'
+import connectDB from './config/db'
+import dealerRouter from './routes/dealers'
 
-connectDB();
+connectDB()
 
-const app = express();
+const app = express()
 
-app.use(express.json());
+app.use(express.json())
 
-app.use('/v1/api/dealers', require('./Routes/dealers'));
+app.use('/v1/api/dealers', dealerRouter)
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`))

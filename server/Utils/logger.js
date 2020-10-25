@@ -1,4 +1,4 @@
-var bunyan = require('bunyan');
-var log = bunyan.createLogger({ name: 'myapp' });
+import bunyan from 'bunyan'
+const log = bunyan.createLogger({ name: 'myapp' })
 
-module.exports = log;
+module.exports = log

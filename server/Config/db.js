@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
+
 const connectionString =
-  'mongodb+srv://simplyPaiUser:@@h$Simplypai@simplypai-cluster.tgduy.mongodb.net/solutionDB?retryWrites=true&w=majority';
+  'mongodb+srv://simplyPaiUser:@@h$Simplypai@simplypai-cluster.tgduy.mongodb.net/solutionDB?retryWrites=true&w=majority'
 
 const connectDB = async () => {
   try {
@@ -11,10 +12,11 @@ const connectDB = async () => {
         useFindAndModify: false,
         useUnifiedTopology: true,
       })
-      .then(() => console.log('Finally Connected to the DB'));
+      .then(() => console.log('Finally Connected to the DB'))
   } catch (e) {
-    console.error('Error Occured while connecting to the DB', e);
+    console.error('Error Occured while connecting to the DB', e)
   }
-};
+}
 
-module.exports = connectDB;
+// module.exports = connectDB;
+export default connectDB
