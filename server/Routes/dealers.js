@@ -7,6 +7,7 @@ const {
   saveDealers,
   getDelaerById,
   getAllDealers,
+  deleteById,
 } = require('../services/dealers')
 
 // POST /v1/api/dealers/single
@@ -66,13 +67,22 @@ router.get('/', async (req, res) => {
 })
 
 // DELETE /v1/api/dealers/:id
-router.delete('/dealer', async (req, res) => {
+router.delete('/:id', checkObjectId('id'), async (req, res) => {
   try {
-  } catch (error) {}
+    const result = await deleteById(req.params.id)
+    if (result) {
+      return res.json({ message: 'Dealer detail deleted successfully' })
+    } else {
+      return res.status(404).json({ error: 'unable to delete dealer details' })
+    }
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server Error')
+  }
 })
 
 // PUT /v1/api/dealers/:id
-router.put('/dealer', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
   } catch (error) {}
 })

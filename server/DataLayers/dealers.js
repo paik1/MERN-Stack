@@ -20,4 +20,6 @@ export const getMany = async () => {
 
 const update = (dealerObj) => {}
 
-const deleteOne = (dealerId) => {}
+export const deleteOne = async (dealerId) => {
+  return await Dealer.findByIdAndRemove(dealerId)
+}

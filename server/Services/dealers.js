@@ -2,7 +2,7 @@
 // such as file data mapping, data moduling and then it will call the method of datalayer to perform the
 // CRUD opetaions into the database
 
-import { saveOne, saveMany, getOne, getMany } from '../DataLayers/dealers'
+import { saveOne, saveMany, getOne, getMany, deleteOne } from '../DataLayers/dealers'
 
 export const saveDealer = (dealerObject) => {
   return saveOne(dealerObject)
@@ -18,4 +18,8 @@ export const getDelaerById = (dealerId) => {
 
 export const getAllDealers = () => {
   return getMany()
+}
+
+export const deleteById = (dealerId) => {
+  return deleteOne(dealerId)
 }
