@@ -85,7 +85,6 @@ router.delete('/:id', checkObjectId('id'), async (req, res) => {
 router.put('/:id', checkObjectId('id'), async (req, res) => {
   try {
     const result = await updateById(req.params.id, req.body)
-    console.log(result);
     if (result) {
       return res
         .status(200)
