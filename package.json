@@ -1,0 +1,14 @@
+{
+  "name": "simplypai",
+  "version": "0.0.1",
+  "description": "MERN Application",
+  "keywords": [
+    "react",
+    "mongoose",
+    "express"
+  ],
+  "dependencies": {
+    "global": "^4.4.0",
+    "nodemon": "^2.0.6"
+  }
+}
