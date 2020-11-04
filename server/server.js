@@ -24,7 +24,12 @@ app.use('/v1/api/dealers', dealerRouter)
 app.use('/v1/api/admin', adminRouter)
 
 // Middleware
-app.use(notFound)
+// app.use(notFound)
+
+// request to handle undefined or all other invalid routes
+app.get("*", function(req, res) {
+    res.status(404).send("Invlid URL");
+})
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
