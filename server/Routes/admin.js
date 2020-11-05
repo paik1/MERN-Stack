@@ -1,6 +1,6 @@
-import { createAdmin } from '../services/admin'
-import checkObjectId from '../utils/checkObjectId'
-import { validateRole } from '../utils/validate'
+import { createAdmin } from '../controllers/admin'
+import checkObjectId from '../middleware/checkObjectId'
+import { validateRole } from '../middleware/roleValidator'
 const express = require('express')
 const router = express.Router()
 

@@ -1,5 +1,5 @@
 import { saveOne, updateOne, deleteOne, getOne } from '../dataLayers/admin'
-import { validateRole } from '../utils/validate'
+import { validateRole } from '../middleware/roleValidator'
 
 export const createAdmin = adminObj => {
 

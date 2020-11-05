@@ -1,4 +1,4 @@
-import { RolesEnum } from './constants'
+import { RolesEnum } from '../utils/constants'
 
 export const validateRole = () => (req, res, next) => {
   if (req.body.role) {

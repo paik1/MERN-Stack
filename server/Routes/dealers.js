@@ -1,4 +1,4 @@
-import checkObjectId from '../utils/checkObjectId'
+import checkObjectId from '../middleware/checkObjectId'
 const express = require('express')
 const router = express.Router()
 const {
@@ -8,7 +8,7 @@ const {
   getAllDealers,
   deleteById,
   updateById,
-} = require('../services/dealers')
+} = require('../controllers/dealers')
 
 // POST /v1/api/dealers/single
 router.post('/single', async (req, res) => {
