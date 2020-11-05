@@ -9,7 +9,7 @@ import {
   getMany,
   deleteOne,
   updateOne,
-} from '../DataLayers/dealers'
+} from '../dataLayers/dealers'
 
 export const saveDealer = (dealerObject) => {
   return saveOne(dealerObject)

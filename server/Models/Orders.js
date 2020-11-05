@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
 const OrdersSchema = new Schema({
   id: {
@@ -19,6 +19,6 @@ const OrdersSchema = new Schema({
   paymentMode: {
     type: String,
   },
-});
+})
 
-module.exports = mongoose.model('orders', OrdersSchema);
+export default mongoose.model('orders', OrdersSchema)
