@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
 const ActivitySchema = new Schema({
   sessionId: {
@@ -11,6 +11,6 @@ const ActivitySchema = new Schema({
   status: { type: String },
   token: { type: String },
   loggedInAt: { type: Schema.Types.Date },
-});
+})
 
-module.exports = mongoose.model('activities', ActivitySchema);
+export default mongoose.model('activities', ActivitySchema)

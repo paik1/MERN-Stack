@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
 const StocksSchema = new Schema({
   id: {
@@ -32,6 +32,6 @@ const StocksSchema = new Schema({
   identifier: {
     type: String,
   },
-});
+})
 
-module.exports = mongoose.model('stocks', StocksSchema);
+export default mongoose.model('stocks', StocksSchema)

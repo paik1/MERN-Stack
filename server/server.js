@@ -1,6 +1,5 @@
 import express from 'express'
 import connectDB from './config/db'
-import { notFound } from './middleware/errorMiddleware'
 import dealerRouter from './routes/dealers'
 import adminRouter from './routes/admin'
 import swaggerUi from 'swagger-ui-express'
@@ -27,8 +26,8 @@ app.use('/v1/api/admin', adminRouter)
 // app.use(notFound)
 
 // request to handle undefined or all other invalid routes
-app.get("*", function(req, res) {
-    res.status(404).send("Invlid URL");
+app.get('*', function(req, res) {
+  res.status(404).send('Invlid URL')
 })
 
 const PORT = process.env.PORT || 5000
