@@ -9,12 +9,15 @@ export const login = async (req, res) => {
   try {
     const result = await AuthDataLayer.isPhoneNoPresent(req.body.phone)
     if (result) {
-      if (req.body.password === result.password) {
-        const token = await generateToken(result._id, result.name)
-        return successResponseWithData(res, 'Login Success', { token })
-      } else {
-        return unauthorizedResponse(res, 'Invalid Credential')
-      }
+      result.comparePassword(req.body.password, async (err, isMatch) => {
+        if (err) throw err
+        if (isMatch) {
+          const token = await generateToken(result._id, result.name)
+          return successResponseWithData(res, 'Login Success', { token })
+        } else {
+          return unauthorizedResponse(res, 'Invalid Credential')
+        }
+      })
     } else {
       return unauthorizedResponse(res, 'Invalid Credential')
     }
