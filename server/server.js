@@ -22,9 +22,6 @@ app.use(swaggerStat.getMiddleware(specs))
 app.use('/v1/api/dealers', dealerRouter)
 app.use('/v1/api/admin', adminRouter)
 
-// Middleware
-// app.use(notFound)
-
 // request to handle undefined or all other invalid routes
 app.get('*', function(req, res) {
   res.status(404).send('Invlid URL')
