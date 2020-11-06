@@ -4,7 +4,6 @@ import * as AdminDataLayer from '../dataLayers/admin'
 export const createAdmin = async (req, res) => {
   try {
     const result = await AdminDataLayer.saveOne(req.body)
-    console.log(result)
     return ApiResponse.successCreated(res, 'Admin creted successfully')
   } catch (error) {
     console.error(error.message)

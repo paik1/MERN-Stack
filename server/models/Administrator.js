@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import { RolesEnum } from '../helpers/constants'
 const Schema = mongoose.Schema
 
 const AdministratorSchema = new Schema({

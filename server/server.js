@@ -1,7 +1,6 @@
 import express from 'express'
 import connectDB from './configuration/db'
-import dealerRouter from './routes/dealers'
-import adminRouter from './routes/admin'
+import apiRouter from './routes/api'
 import swaggerUi from 'swagger-ui-express'
 import { specs } from './helpers/documentation'
 import swaggerStat from 'swagger-stats'
@@ -23,8 +22,7 @@ app.use(swaggerStat.getMiddleware(specs))
 app.use(cors());
 
 // API endpoints
-app.use('/v1/api/dealers', dealerRouter)
-app.use('/v1/api/admin', adminRouter)
+app.use("/v1/api/", apiRouter);
 
 // request to handle undefined or all other invalid routes
 app.get('*', function(req, res) {
