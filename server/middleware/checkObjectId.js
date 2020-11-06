@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+import { validationErrorWithData } from '../helpers/apiResponse'
 
 const checkObjectId = objectId => (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params[objectId]))
-    return res.status(400).json({ error: 'Invalid ID' })
+    return validationErrorWithData(res, 'Invalid Id', null)
   next()
 }
 
