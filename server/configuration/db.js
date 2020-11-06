@@ -1,11 +1,9 @@
 import mongoose from 'mongoose'
-
-const connectionString =
-  'mongodb+srv://simplyPaiUser:@@h$Simplypai@simplypai-cluster.tgduy.mongodb.net/solutionDB?retryWrites=true&w=majority'
+require('dotenv').config()
 
 const connectDB = async () => {
   try {
-    const con = await mongoose.connect(connectionString, {
+    const con = await mongoose.connect(process.env.MONGODB_URL, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,

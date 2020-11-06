@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "babel-watch server.js",
+    "dev": "set NODE_ENV=developement && babel-watch server.js",
     "server": "nodemon server.js",
     "start:dev": "node server.js",
     "build": "webpack",
