@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "79eea694-f68f-40dc-928a-31c682019a06",
+		"name": "SimplyPai",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dealers",
+			"item": [
+				{
+					"name": "Get dealer by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/api/dealers/5fa511a798131c50e4fc00f6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"dealers",
+								"5fa511a798131c50e4fc00f6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dealer by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/api/dealers/5f95846aa3e9b8ab19dcd173",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"dealers",
+								"5f95846aa3e9b8ab19dcd173"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all dealers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/api/dealers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"dealers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add single dealer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dealer 1\",\r\n    \"address\": \"Ankola\",\r\n    \"email\": \"dealer@mail.com\",\r\n    \"contact\" : {\r\n        \"primary\": \"9087676545\",\r\n        \"secondary\": \"8798767856\"\r\n    },\r\n    \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/api/dealers/single",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"dealers",
+								"single"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add bulk dealer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"name\": \"Dealer 2\",\r\n        \"address\": \"Ankola\",\r\n        \"email\": \"dealer@mail.com\",\r\n        \"contact\": {\r\n            \"primary\": \"9087676545\",\r\n            \"secondary\": \"8798767856\"\r\n        },\r\n        \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n    },\r\n    {\r\n        \"name\": \"Dealer 3\",\r\n        \"address\": \"Ankola\",\r\n        \"email\": \"dealer@mail.com\",\r\n        \"contact\": {\r\n            \"primary\": \"9087676545\",\r\n            \"secondary\": \"8798767856\"\r\n        },\r\n        \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/api/dealers/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"dealers",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update delaer by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"updated address\",\r\n    \"email\": \"updateddealer@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/api/dealers/5fa511a798131c50e4fc00f6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"dealers",
+								"5fa511a798131c50e4fc00f6"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,9 +1,9 @@
 import express from 'express'
-import connectDB from './config/db'
+import connectDB from './configuration/db'
 import dealerRouter from './routes/dealers'
 import adminRouter from './routes/admin'
 import swaggerUi from 'swagger-ui-express'
-import { specs } from './utils/documentation'
+import { specs } from './helpers/documentation'
 import swaggerStat from 'swagger-stats'
 
 connectDB()

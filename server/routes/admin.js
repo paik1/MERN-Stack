@@ -1,5 +1,3 @@
-import { createAdmin } from '../controllers/admin'
-import checkObjectId from '../middleware/checkObjectId'
 import { validateRole } from '../middleware/roleValidator'
 const express = require('express')
 const router = express.Router()
@@ -7,7 +5,6 @@ const router = express.Router()
 // POST /v1/api/admin
 router.post('/', validateRole(), async (req, res) => {
   try {
-    const result = await createAdmin(req.body)
     return res.status(201).json({ message: 'Admin created successfully' })
   } catch (error) {
     console.error(error.message)
