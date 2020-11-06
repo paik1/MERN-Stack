@@ -1,7 +1,7 @@
 import Admin from '../models/Administrator'
 
 export const saveOne = async obj => {
-  return (await Admin.collection.insertOne(obj)).insertedId
+  return (await new Admin(obj).save())._id
 }
 
 export const updateOne = async (obj, item) => {
