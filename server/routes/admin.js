@@ -1,16 +1,10 @@
-import { validateRole } from '../middleware/roleValidator'
-const express = require('express')
+import express from 'express'
+import * as AdminController from '../controllers/admin'
+import roleValidator from '../middleware/roleValidator';
 const router = express.Router()
 
 // POST /v1/api/admin
-router.post('/', validateRole(), async (req, res) => {
-  try {
-    return res.status(201).json({ message: 'Admin created successfully' })
-  } catch (error) {
-    console.error(error.message)
-    res.status(500).send('Server Error')
-  }
-})
+router.post('/', roleValidator(), AdminController.createAdmin)
 
 // PUT /v1/api/admin/:phone
 router.put('/:phone', async (req, res) => {
