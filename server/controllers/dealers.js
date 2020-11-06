@@ -7,7 +7,7 @@ import * as ApiResponse from '../helpers/apiResponse'
 export const saveDealer = async (req, res) => {
   try {
     const result = await DealerDataLayer.saveOne(req.body)
-
+    
     return ApiResponse.successCreatedWithData(res, 'Dealer created', {
       id: result,
     })

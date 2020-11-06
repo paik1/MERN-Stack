@@ -5,6 +5,7 @@ import adminRouter from './routes/admin'
 import swaggerUi from 'swagger-ui-express'
 import { specs } from './helpers/documentation'
 import swaggerStat from 'swagger-stats'
+import cors from 'cors'
 
 connectDB()
 
@@ -17,6 +18,9 @@ app.use(express.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs))
 // http://localhost:5000/swagger-stats/ui#sws_summary
 app.use(swaggerStat.getMiddleware(specs))
+
+//To allow cross-origin requests
+app.use(cors());
 
 // API endpoints
 app.use('/v1/api/dealers', dealerRouter)
