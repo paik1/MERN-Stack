@@ -6,15 +6,99 @@
 	},
 	"item": [
 		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"9035589722\",\r\n    \"password\": \"samplePassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "administrator",
+			"item": [
+				{
+					"name": "Add Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Abhin\",\r\n    \"phone\": \"9035589722\",\r\n    \"email\": \"paia@mail.com\",\r\n    \"role\": \"SuperUser\",\r\n    \"password\": \"samplePassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/api/admin/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "dealers",
 			"item": [
 				{
 					"name": "Get dealer by id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTVhNzUyZDliNTA0NWU3MDdhYmVjYiIsIm5hbWUiOiJBYmhpbiIsImlhdCI6MTYwNDY5MjIyNCwiZXhwIjoxNjA1Mjk3MDI0fQ.ORg-r9jvbVzktjMgLFIFRkEVEIiPyVl53jTr0CAj40o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/v1/api/dealers/5fa511a798131c50e4fc00f6",
+							"raw": "http://localhost:5000/v1/api/dealers/5fa51d27b0cdfc478488677a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -24,29 +108,7 @@
 								"v1",
 								"api",
 								"dealers",
-								"5fa511a798131c50e4fc00f6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete dealer by id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/v1/api/dealers/5f95846aa3e9b8ab19dcd173",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"v1",
-								"api",
-								"dealers",
-								"5f95846aa3e9b8ab19dcd173"
+								"5fa51d27b0cdfc478488677a"
 							]
 						}
 					},
@@ -55,6 +117,16 @@
 				{
 					"name": "Get all dealers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTVhNzUyZDliNTA0NWU3MDdhYmVjYiIsIm5hbWUiOiJBYmhpbiIsImlhdCI6MTYwNDY5MjIyNCwiZXhwIjoxNjA1Mjk3MDI0fQ.ORg-r9jvbVzktjMgLFIFRkEVEIiPyVl53jTr0CAj40o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -81,7 +153,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Dealer 1\",\r\n    \"address\": \"Ankola\",\r\n    \"email\": \"dealer@mail.com\",\r\n    \"contact\" : {\r\n        \"primary\": \"9087676545\",\r\n        \"secondary\": \"8798767856\"\r\n    },\r\n    \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Dealer 4\",\r\n    \"address\": \"Bangalore\",\r\n    \"email\": \"dealer4@mail.com\",\r\n    \"contact\" : {\r\n        \"primary\": \"9087676545\",\r\n        \"secondary\": \"8798767856\"\r\n    },\r\n    \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -112,7 +184,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"name\": \"Dealer 2\",\r\n        \"address\": \"Ankola\",\r\n        \"email\": \"dealer@mail.com\",\r\n        \"contact\": {\r\n            \"primary\": \"9087676545\",\r\n            \"secondary\": \"8798767856\"\r\n        },\r\n        \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n    },\r\n    {\r\n        \"name\": \"Dealer 3\",\r\n        \"address\": \"Ankola\",\r\n        \"email\": \"dealer@mail.com\",\r\n        \"contact\": {\r\n            \"primary\": \"9087676545\",\r\n            \"secondary\": \"8798767856\"\r\n        },\r\n        \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n        \"name\": \"Dealer 5\",\r\n        \"address\": \"Goa\",\r\n        \"email\": \"dealer@mail.com\",\r\n        \"contact\": {\r\n            \"primary\": \"9087676545\",\r\n            \"secondary\": \"8798767856\"\r\n        },\r\n        \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n    },\r\n    {\r\n        \"name\": \"Dealer 6\",\r\n        \"address\": \"Kerala\",\r\n        \"email\": \"dealer@mail.com\",\r\n        \"contact\": {\r\n            \"primary\": \"9087676545\",\r\n            \"secondary\": \"8798767856\"\r\n        },\r\n        \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -151,7 +223,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/v1/api/dealers/5fa511a798131c50e4fc00f6",
+							"raw": "http://localhost:5000/v1/api/dealers/5fa511d698131c50e4fc00f7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -161,7 +233,29 @@
 								"v1",
 								"api",
 								"dealers",
-								"5fa511a798131c50e4fc00f6"
+								"5fa511d698131c50e4fc00f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dealer by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/api/dealers/5fa51a879966324e38e054fd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"dealers",
+								"5fa51a879966324e38e054fd"
 							]
 						}
 					},
