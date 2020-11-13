@@ -1,7 +1,8 @@
 import express from 'express'
-const router = express.Router()
 import * as AuthController from '../controllers/auth'
+const router = express.Router()
 
+// Validation: Token
 router.post('/login', AuthController.login)
 
 export default router

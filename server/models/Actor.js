@@ -8,10 +8,16 @@ const ActorSchema = new Schema({
     type: Schema.Types.ObjectId,
   },
   name: { type: String, trim: true, required: 'Admin name is Required' },
-  phone: { type: String, trim: true, required: 'Contact no is Required' },
+  phone: {
+    type: String,
+    trim: true,
+    required: 'Contact no is Required',
+    unique: true,
+  },
   email: {
     type: String,
     trim: true,
+    unique: true,
     match: [/.+@.+\..+/, 'Please enter a valid e-mail address'],
     required: 'Email is Required',
   },

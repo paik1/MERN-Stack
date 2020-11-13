@@ -4,7 +4,7 @@ import { validateRole, isOwner } from '../middleware/validators'
 import { addTrialLicense } from '../dataLayers/license'
 
 export const createOwner = async (req, res) => {
-  if (validateRole(req.body.role)) {
+  if (validateRole(req.body.role) && isOwner(req.body.role)) {
     try {
       let isOwnerPresent = await ActorDataLayer.isOwnerPresent()
       if (isOwnerPresent === 0) {
@@ -28,13 +28,17 @@ export const createOwner = async (req, res) => {
       }
     } catch (error) {
       console.error(error.message)
-      return ApiResponse.errorResponse(
+      return ApiResponse.verboseErrorResponse(
         res,
-        'Error occured while registering Owner'
+        'Error occured while registering Owner',
+        error.message
       )
     }
   } else {
-    return ApiResponse.validationErrorWithData(res, 'Invalid Role')
+    return ApiResponse.validationErrorWithData(
+      res,
+      'Invalid Role or Other worker can not be register '
+    )
   }
 }
 
@@ -56,12 +60,16 @@ export const addActor = async (req, res) => {
       }
     } catch (error) {
       console.error(error.message)
-      return ApiResponse.errorResponse(
+      return ApiResponse.verboseErrorResponse(
         res,
-        `Error occured while registering ${req.body.role}`
+        `Error occured while registering ${req.body.role}`,
+        error.message
       )
     }
   } else {
-    return ApiResponse.validationErrorWithData(res, 'Invalid Role or You can not register Owner')
+    return ApiResponse.validationErrorWithData(
+      res,
+      'Invalid Role or You can not register Owner'
+    )
   }
 }

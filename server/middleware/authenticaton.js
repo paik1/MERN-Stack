@@ -16,12 +16,17 @@ const validateToken = async (req, res, next) => {
       process.env.JWT_SECRET
     )
     let actorObj = await isActorPresent(decrypt.id)
-    req.actor = {
-      id: actorObj._id,
-      name: actorObj.name,
-      email: actorObj.email,
-      role: actorObj.role,
+    if (actorObj) {
+      req.actor = {
+        id: actorObj._id,
+        name: actorObj.name,
+        email: actorObj.email,
+        role: actorObj.role,
+      }
+    } else {
+      return unauthorizedResponse(res, 'Invalid Token')
     }
+
     next()
   } catch (error) {
     return errorResponse(res, error.toString())
