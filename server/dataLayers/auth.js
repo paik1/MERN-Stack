@@ -1,5 +1,10 @@
-import Admin from '../models/Administrator'
+import Actor from '../models/Actor'
 
 export const isPhoneNoPresent = phoneNo => {
-  return Admin.findOne({ phone: phoneNo })
+  return Actor.findOne({ phone: phoneNo })
+}
+
+
+export const isActorPresent = actorId => {
+  return Actor.findOne({ _id: actorId })
 }

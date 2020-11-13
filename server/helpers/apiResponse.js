@@ -40,6 +40,15 @@ export const errorResponse = (res, message) => {
   return res.status(500).json(data)
 }
 
+export const verboseErrorResponse = (res, message, details) => {
+  var data = {
+    status: 0,
+    message,
+    details
+  }
+  return res.status(500).json(data)
+}
+
 export const notFoundResponse = (res, message) => {
   var data = {
     status: 0,

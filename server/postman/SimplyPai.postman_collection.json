@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"phone\": \"9035589722\",\r\n    \"password\": \"samplePassword\"\r\n}",
+							"raw": "{\r\n    \"phone\": \"8884181767\",\r\n        \"password\": \"samplePassword\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,16 +43,16 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "administrator",
+			"name": "actors",
 			"item": [
 				{
-					"name": "Add Admin",
+					"name": "Add Owner",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Abhin\",\r\n    \"phone\": \"9035589722\",\r\n    \"email\": \"paia@mail.com\",\r\n    \"role\": \"SuperUser\",\r\n    \"password\": \"samplePassword\"\r\n}",
+							"raw": "{\r\n    \"name\": \"SimplyPai\",\r\n    \"phone\": \"9035572177\",\r\n    \"email\": \"pai@mail.com\",\r\n    \"role\": \"owner\",\r\n    \"password\": \"password#0000\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -60,7 +60,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/v1/api/admin/",
+							"raw": "http://localhost:5000/v1/api/actor/register/owner",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -69,8 +69,51 @@
 							"path": [
 								"v1",
 								"api",
-								"admin",
-								""
+								"actor",
+								"register",
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Co-Owner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWU0MDU0YzQwYzhhNmJjNDkxODkyZiIsIm5hbWUiOiJTaW1wbHlQYWkiLCJpYXQiOjE2MDUyNTU5MTUsImV4cCI6MTYwNTg2MDcxNX0.uiTvj-O79NcHITWC_Q1-L6Ux7lTjbf91Ouz5iJTyYzk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"CoOwnerName\",\r\n    \"phone\": \"0884181237\",\r\n    \"email\": \"coowner@mail.com\",\r\n    \"role\": \"coowner\",\r\n    \"password\": \"samplePassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/api/actor/register/worker",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"actor",
+								"register",
+								"worker"
 							]
 						}
 					},
@@ -90,7 +133,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTVhNzUyZDliNTA0NWU3MDdhYmVjYiIsIm5hbWUiOiJBYmhpbiIsImlhdCI6MTYwNDY5MjIyNCwiZXhwIjoxNjA1Mjk3MDI0fQ.ORg-r9jvbVzktjMgLFIFRkEVEIiPyVl53jTr0CAj40o",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWU0Mjk2ZjdhNTAyOGZlMDc2ODQxNSIsIm5hbWUiOiJNYW5hZ2VyTmFtZSIsImlhdCI6MTYwNTI1NTk3MiwiZXhwIjoxNjA1ODYwNzcyfQ.RZ7EkyJzS5-oPXVbBmmb_-o3SnJrswYFqOjH64HU2Cc",
 									"type": "string"
 								}
 							]
@@ -98,7 +141,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/v1/api/dealers/5fa51d27b0cdfc478488677a",
+							"raw": "http://localhost:5000/v1/api/dealers/5fae431cf7a5028fe0768417",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -108,7 +151,7 @@
 								"v1",
 								"api",
 								"dealers",
-								"5fa51d27b0cdfc478488677a"
+								"5fae431cf7a5028fe0768417"
 							]
 						}
 					},
@@ -122,7 +165,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTVhNzUyZDliNTA0NWU3MDdhYmVjYiIsIm5hbWUiOiJBYmhpbiIsImlhdCI6MTYwNDY5MjIyNCwiZXhwIjoxNjA1Mjk3MDI0fQ.ORg-r9jvbVzktjMgLFIFRkEVEIiPyVl53jTr0CAj40o",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWU0Mjk2ZjdhNTAyOGZlMDc2ODQxNSIsIm5hbWUiOiJNYW5hZ2VyTmFtZSIsImlhdCI6MTYwNTI1NTk3MiwiZXhwIjoxNjA1ODYwNzcyfQ.RZ7EkyJzS5-oPXVbBmmb_-o3SnJrswYFqOjH64HU2Cc",
 									"type": "string"
 								}
 							]
@@ -149,11 +192,21 @@
 				{
 					"name": "Add single dealer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWU0Mjk2ZjdhNTAyOGZlMDc2ODQxNSIsIm5hbWUiOiJNYW5hZ2VyTmFtZSIsImlhdCI6MTYwNTI1NTk3MiwiZXhwIjoxNjA1ODYwNzcyfQ.RZ7EkyJzS5-oPXVbBmmb_-o3SnJrswYFqOjH64HU2Cc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Dealer 4\",\r\n    \"address\": \"Bangalore\",\r\n    \"email\": \"dealer4@mail.com\",\r\n    \"contact\" : {\r\n        \"primary\": \"9087676545\",\r\n        \"secondary\": \"8798767856\"\r\n    },\r\n    \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Dealer 1\",\r\n    \"address\": \"Bangalore\",\r\n    \"email\": \"dealer1@mail.com\",\r\n    \"contact\" : {\r\n        \"primary\": \"9087676545\",\r\n        \"secondary\": \"8798767856\"\r\n    },\r\n    \"gstin\": \"5606378d-7615-4231-aac2-0161f08c3b1c\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -180,6 +233,16 @@
 				{
 					"name": "Add bulk dealer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWU0Mjk2ZjdhNTAyOGZlMDc2ODQxNSIsIm5hbWUiOiJNYW5hZ2VyTmFtZSIsImlhdCI6MTYwNTI1NTk3MiwiZXhwIjoxNjA1ODYwNzcyfQ.RZ7EkyJzS5-oPXVbBmmb_-o3SnJrswYFqOjH64HU2Cc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {

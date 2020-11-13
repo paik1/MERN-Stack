@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import dotEnv from 'dotenv'
 import { unauthorizedResponse, errorResponse } from '../helpers/apiResponse'
+import { isActorPresent } from '../dataLayers/auth'
 
 dotEnv.config()
 
@@ -14,10 +15,18 @@ const validateToken = async (req, res, next) => {
       token.replace('Bearer ', ''),
       process.env.JWT_SECRET
     )
-    req.user = {
-      id: decrypt.id,
-      name: decrypt.name,
+    let actorObj = await isActorPresent(decrypt.id)
+    if (actorObj) {
+      req.actor = {
+        id: actorObj._id,
+        name: actorObj.name,
+        email: actorObj.email,
+        role: actorObj.role,
+      }
+    } else {
+      return unauthorizedResponse(res, 'Invalid Token')
     }
+
     next()
   } catch (error) {
     return errorResponse(res, error.toString())

@@ -3,15 +3,21 @@ import bcrypt from 'bcrypt'
 const Schema = mongoose.Schema
 const SALT_WORK_FACTOR = 10
 
-const AdministratorSchema = new Schema({
+const ActorSchema = new Schema({
   id: {
     type: Schema.Types.ObjectId,
   },
   name: { type: String, trim: true, required: 'Admin name is Required' },
-  phone: { type: String, trim: true, required: 'Contact no is Required' },
+  phone: {
+    type: String,
+    trim: true,
+    required: 'Contact no is Required',
+    unique: true,
+  },
   email: {
     type: String,
     trim: true,
+    unique: true,
     match: [/.+@.+\..+/, 'Please enter a valid e-mail address'],
     required: 'Email is Required',
   },
@@ -28,7 +34,7 @@ const AdministratorSchema = new Schema({
   },
 })
 
-AdministratorSchema.pre('save', function(next) {
+ActorSchema.pre('save', function(next) {
   let admin = this
   if (!admin.isModified('password')) return next()
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
@@ -42,11 +48,11 @@ AdministratorSchema.pre('save', function(next) {
   })
 })
 
-AdministratorSchema.methods.comparePassword = function(candidatePassword, cb) {
+ActorSchema.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
     if (err) return cb(err)
     cb(null, isMatch)
   })
 }
 
-export default mongoose.model('admin', AdministratorSchema)
+export default mongoose.model('Actors', ActorSchema)

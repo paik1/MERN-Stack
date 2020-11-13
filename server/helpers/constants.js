@@ -1,5 +1,7 @@
 export const RolesEnum = Object.freeze({
-  SUPERUSER: 'SuperUser',
-  MEDIATOR: 'Mediator',
-  COWORKER: 'CoWorker',
+  SUPERUSER: 'superuser',
+  OWNER: 'owner',
+  COOWNER: 'coowner',
+  MANAGER: 'manager',
+  WORKER: 'worker',
 })

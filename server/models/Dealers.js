@@ -27,4 +27,4 @@ const DealerSchema = new Schema({
   },
 })
 
-export default mongoose.model('dealers', DealerSchema)
+export default mongoose.model('Dealers', DealerSchema)

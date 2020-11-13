@@ -1,13 +1,10 @@
-// All the business logic will be reside in this files
-// such as file data mapping, data moduling and then it will call the method of datalayer to perform the
-// CRUD opetaions into the database
 import * as DealerDataLayer from '../dataLayers/dealers'
 import * as ApiResponse from '../helpers/apiResponse'
 
 export const saveDealer = async (req, res) => {
   try {
     const result = await DealerDataLayer.saveOne(req.body)
-    
+
     return ApiResponse.successCreatedWithData(res, 'Dealer created', {
       id: result,
     })
@@ -31,7 +28,7 @@ export const saveDealers = async (req, res) => {
 
 export const getDelaerById = async (req, res) => {
   try {
-    const result = await DealerDataLayer.getOne(req.params.id)
+    const result = await DealerDataLayer.getOne(req.params.dealerId)
     if (result) {
       return ApiResponse.successResponseWithData(res, 'Dealer details', result)
     } else {
@@ -59,7 +56,7 @@ export const getAllDealers = async (req, res) => {
 
 export const deleteById = async (req, res) => {
   try {
-    const result = await DealerDataLayer.deleteOne(req.params.id)
+    const result = await DealerDataLayer.deleteOne(req.params.dealerId)
     if (result) {
       return ApiResponse.successResponse(
         res,
@@ -81,7 +78,7 @@ export const deleteById = async (req, res) => {
 export const updateById = async (req, res) => {
   try {
     const dealerObj = req.body
-    const dealer = await DealerDataLayer.getOne(req.params.id, dealerObj)
+    const dealer = await DealerDataLayer.getOne(req.params.dealerId, dealerObj)
     dealer.name = dealerObj.name ? dealerObj.name : dealer.name
     dealer.address = dealerObj.address ? dealerObj.address : dealer.address
     dealer.email = dealerObj.email ? dealerObj.email : dealer.email
@@ -98,12 +95,12 @@ export const updateById = async (req, res) => {
     if (result) {
       return ApiResponse.successResponse(
         res,
-        `${req.params.id} details updated successfully`
+        `${req.params.dealerId} details updated successfully`
       )
     } else {
       return ApiResponse.validationErrorWithData(
         res,
-        `Failed to update ${req.params.id} details`
+        `Failed to update ${req.params.dealerId} details`
       )
     }
   } catch (error) {
