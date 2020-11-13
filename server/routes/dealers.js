@@ -1,10 +1,11 @@
-import checkObjectId from '../middleware/checkObjectId'
+import { validateObjectId } from '../middleware/validators'
 import express from 'express'
 import * as DealersController from '../controllers/dealers'
-import validateToken from '../middleware/tokenValidator'
+import validateToken from '../middleware/authenticaton'
+
 const router = express.Router()
 
-router.param('dealerId', checkObjectId)
+router.param('dealerId', validateObjectId)
 
 // POST /v1/api/dealers/single
 router.post('/single', validateToken, DealersController.saveDealer)
