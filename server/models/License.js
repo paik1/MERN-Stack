@@ -9,10 +9,15 @@ const LicenseSchema = new Schema({
   },
   registeredAt: {
     type: String,
+    required: true,
   },
   owner: {
     type: mongoose.Types.ObjectId,
     ref: 'Actors',
+    required: true,
+  },
+  expireAt: {
+    type: String,
     required: true,
   },
   status: {

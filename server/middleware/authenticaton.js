@@ -19,6 +19,7 @@ const validateToken = async (req, res, next) => {
     if (actorObj) {
       req.actor = {
         id: actorObj._id,
+        phone: actorObj.phone,
         name: actorObj.name,
         email: actorObj.email,
         role: actorObj.role,

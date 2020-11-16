@@ -7,6 +7,7 @@ import { RolesEnum } from '../helpers/constants'
 
 const router = express.Router()
 
+// Validation: Checking the id parameret is valid object or not
 router.param('dealerId', validateObjectId)
 
 // Validation: Token, Role and License
