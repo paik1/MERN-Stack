@@ -2,6 +2,8 @@ import jwt from 'jsonwebtoken'
 import dotEnv from 'dotenv'
 import { unauthorizedResponse, errorResponse } from '../helpers/apiResponse'
 import { isActorPresent } from '../dataLayers/auth'
+import { getLicense } from '../dataLayers/license'
+import { licenseFactory } from '../helpers/licenseMapperFactory'
 
 dotEnv.config()
 
@@ -15,6 +17,8 @@ const validateToken = async (req, res, next) => {
       token.replace('Bearer ', ''),
       process.env.JWT_SECRET
     )
+
+    // Get and Set Actor Object
     let actorObj = await isActorPresent(decrypt.id)
     if (actorObj) {
       req.actor = {
@@ -28,6 +32,10 @@ const validateToken = async (req, res, next) => {
       return unauthorizedResponse(res, 'Invalid Token')
     }
 
+    // Get and Set License Details
+    let license = licenseFactory(await getLicense())
+    license ? (req.license = license) : (req.license = null)
+    
     next()
   } catch (error) {
     return errorResponse(res, error.toString())

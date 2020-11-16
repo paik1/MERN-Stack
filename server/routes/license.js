@@ -1,7 +1,7 @@
 import express from 'express'
 import { RolesEnum } from '../helpers/constants'
 import validateToken from '../middleware/authenticaton'
-import { authorizeRole } from '../middleware/authorization'
+import { authorizeLicense, authorizeRole } from '../middleware/authorization'
 import * as LicenseConstroller from '../controllers/license'
 const router = express.Router()
 
@@ -11,6 +11,7 @@ const router = express.Router()
 router.get(
   '/',
   validateToken,
+  authorizeLicense,
   authorizeRole([RolesEnum.OWNER, RolesEnum.COOWNER]),
   LicenseConstroller.getLicenseDetails
 )
@@ -21,6 +22,7 @@ router.get(
 router.get(
   '/status',
   validateToken,
+  authorizeLicense,
   authorizeRole([
     RolesEnum.OWNER,
     RolesEnum.COOWNER,

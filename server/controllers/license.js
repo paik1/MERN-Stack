@@ -7,6 +7,7 @@ import * as LicenseDataLayer from '../dataLayers/license'
 import moment from 'moment'
 import { LicenseConstant } from '../helpers/constants'
 import { encryptedLicenseKey } from '../helpers/licenseHelper'
+import { licenseFactory } from '../helpers/licenseMapperFactory'
 
 export const addTrialLicense = async req => {
   let date = moment().format()
@@ -28,23 +29,9 @@ export const addTrialLicense = async req => {
 
 export const getLicenseDetails = async (req, res) => {
   try {
-    let {
-      licenseKey,
-      registeredAt,
-      status,
-      expireAt,
-    } = await LicenseDataLayer.getLicense()
-
-    if (licenseKey) {
-      expireAt = moment(expireAt)
-      registeredAt = moment(registeredAt)
-      let expireIn = `${expireAt.diff(registeredAt, 'days')} days`
-      return successResponseWithData(res, 'License Details', {
-        licenseKey,
-        registeredAt,
-        status,
-        expireIn,
-      })
+    let license = licenseFactory(await LicenseDataLayer.getLicense())
+    if (license) {
+      return successResponseWithData(res, 'License details', license)
     } else {
       return errorResponse(res, 'No license details found')
     }
