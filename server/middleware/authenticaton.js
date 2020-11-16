@@ -15,6 +15,8 @@ const validateToken = async (req, res, next) => {
       token.replace('Bearer ', ''),
       process.env.JWT_SECRET
     )
+
+    // Get and Set Actor Object
     let actorObj = await isActorPresent(decrypt.id)
     if (actorObj) {
       req.actor = {
