@@ -49,7 +49,7 @@ export const getLicenseDetails = async (req, res) => {
       return errorResponse(res, 'No license details found')
     }
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return errorResponse(res, 'Error occured while fetching license details')
   }
 }
@@ -79,4 +79,16 @@ export const upgradeLicense = async (req, res) => {
   }
 
   return await res.status(200).json(req.actor)
+}
+
+export const isLicenseExpired = async (req, res) => {
+  try {
+    let status = await LicenseDataLayer.isLicenseExpired()
+    return successResponseWithData(res, 'License status', {
+      expired: status ? false : true,
+    })
+  } catch (error) {
+    console.error(error)
+    return errorResponse(res, 'Error occured while fetching license status')
+  }
 }
