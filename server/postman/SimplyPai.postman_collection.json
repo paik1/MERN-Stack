@@ -9,13 +9,44 @@
 			"name": "auth",
 			"item": [
 				{
-					"name": "Login",
+					"name": "Owner Login",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"phone\": \"8884181767\",\r\n        \"password\": \"samplePassword\"\r\n\r\n}",
+							"raw": "{\r\n    \"phone\": \"9035572177\",\r\n    \"password\": \"password#0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Worker Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"8884181767\",\r\n    \"password\": \"samplePassword\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -319,6 +350,108 @@
 								"api",
 								"dealers",
 								"5fa51a879966324e38e054fd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "license",
+			"item": [
+				{
+					"name": "Get License Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYjI5YTFkNjFiNjk2YTAxMGQ5MmI1OCIsIm5hbWUiOiJTaW1wbHlQYWkiLCJpYXQiOjE2MDU1NDAzODUsImV4cCI6MTYwNjE0NTE4NX0.bOmr86c1dB7t2I9r0AldnpyD1in5EgQQehfH25zmRnA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/api/license/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"license",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get License status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYjI5YTFkNjFiNjk2YTAxMGQ5MmI1OCIsIm5hbWUiOiJTaW1wbHlQYWkiLCJpYXQiOjE2MDU1NDAzODUsImV4cCI6MTYwNjE0NTE4NX0.bOmr86c1dB7t2I9r0AldnpyD1in5EgQQehfH25zmRnA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/api/license/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"license",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upgrade License",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWU0MDU0YzQwYzhhNmJjNDkxODkyZiIsIm5hbWUiOiJTaW1wbHlQYWkiLCJpYXQiOjE2MDUyODU5NjAsImV4cCI6MTYwNTg5MDc2MH0.qyurwBCw5f64VA5KlXkUcMPxfqoJXjiPrNc2_3y4jjY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/api/license/buy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"api",
+								"license",
+								"buy"
 							]
 						}
 					},

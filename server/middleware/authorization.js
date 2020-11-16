@@ -1,5 +1,7 @@
 import { unauthorizedResponse, errorResponse } from '../helpers/apiResponse'
 import { LicenseConstant } from '../helpers/constants'
+import { getLicense } from '../dataLayers/license'
+import { licenseFactory } from '../helpers/licenseMapperFactory'
 
 export const authorizeRole = roles => (req, res, next) =>
   !roles.includes(req.actor.role)
@@ -10,10 +12,11 @@ export const authorizeRole = roles => (req, res, next) =>
     : next()
 
 export const authorizeLicense = async (req, res, next) => {
-  if (req.license) {
+  let license = licenseFactory(await getLicense())
+  if (license) {
     if (
-      req.license.status === LicenseConstant.TRIAL_LICENSE_STATUS &&
-      req.license.expireIn < 0
+      license.status === LicenseConstant.TRIAL_LICENSE_STATUS &&
+      license.expireIn < 0
     ) {
       return unauthorizedResponse(
         res,
@@ -22,8 +25,8 @@ export const authorizeLicense = async (req, res, next) => {
     }
 
     if (
-      req.license.status === LicenseConstant.PAID_LICENSE_STATUS &&
-      req.license.expireIn < 0
+      license.status === LicenseConstant.PAID_LICENSE_STATUS &&
+      license.expireIn < 0
     ) {
       return unauthorizedResponse(
         res,
