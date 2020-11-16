@@ -1,7 +1,7 @@
 import * as ApiResponse from '../helpers/apiResponse'
 import * as ActorDataLayer from '../dataLayers/actor'
+import { addTrialLicense } from '../controllers/license'
 import { validateRole, isOwner } from '../middleware/validators'
-import { addTrialLicense } from '../dataLayers/license'
 
 export const createOwner = async (req, res) => {
   if (validateRole(req.body.role) && isOwner(req.body.role)) {
@@ -9,11 +9,7 @@ export const createOwner = async (req, res) => {
       let isOwnerPresent = await ActorDataLayer.isOwnerPresent()
       if (isOwnerPresent === 0) {
         const result = await ActorDataLayer.saveOne(req.body)
-        const licenseResult = await addTrialLicense(
-          result._id,
-          req.body.name,
-          req.body.phone
-        )
+        const licenseResult = await addTrialLicense(req.body)
         // If the Admin created succefully but failed to update the license then need to rollback the operation
         if (result && licenseResult) {
           return ApiResponse.successCreated(
