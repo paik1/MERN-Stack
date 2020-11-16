@@ -1,14 +1,4 @@
 {
-  "presets": ["env"],
-  "plugins": [
-    [
-      "transform-runtime",
-      {
-        "regenerator": true
-      },
-      "transform-object-rest-spread",
-      { "useBuiltIns": true },
-      "transform-optional-chaining"
-    ]
-  ]
+  "presets": ["@babel/preset-env"],
+  "plugins": ["@babel/plugin-transform-runtime"]
 }

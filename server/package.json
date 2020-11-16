@@ -7,7 +7,7 @@
     "dev": "set NODE_ENV=development && nodemon --exec babel-node server.js",
     "prod": "node dist/api.bundle.js",
     "analysis": "webpack --json > analysis.json",
-    "build": "webpack --config webpack.config.js --mode production",
+    "build": "webpack",
     "lint": "eslint ./",
     "lint-fix": "eslint ./ --fix"
   },
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.6",
+    "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.2.1",
     "eslint": "^7.12.1",
@@ -45,6 +46,7 @@
     "nodemon": "^2.0.6",
     "prettier": "^1.15.3",
     "webpack": "^5.4.0",
-    "webpack-cli": "^4.1.0"
+    "webpack-cli": "^4.1.0",
+    "webpack-node-externals": "^2.5.2"
   }
 }
