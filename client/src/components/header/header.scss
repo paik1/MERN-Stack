@@ -1,0 +1,20 @@
+.header {
+  background-color: var(--light-primary);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+
+  & h2 {
+    font-family: var(--secondary-font);
+    font-weight: 400;
+  }
+
+  &__avatar {
+    background-color: gray;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+  }
+}
