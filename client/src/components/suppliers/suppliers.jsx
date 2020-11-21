@@ -3,7 +3,7 @@ import EmptyState from '../emptyState/emptyState';
 import './suppliers.scss';
 
 function Suppliers() {
-  return <EmptyState stateName={'supplier'} />;
+  return <EmptyState stateName={'supplier'} />
 }
 
 export default Suppliers;

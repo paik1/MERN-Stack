@@ -1,8 +1,8 @@
 import React from 'react';
-import './transactoins.scss';
+import './transactions.scss';
 import EmptyState from '../emptyState/emptyState';
 
-function Transactoins() {
+function Transactions() {
   return (
     <div>
       <EmptyState stateName={'transaction'} />
@@ -10,4 +10,4 @@ function Transactoins() {
   );
 }
 
-export default Transactoins;
+export default Transactions;

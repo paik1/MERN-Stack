@@ -43,7 +43,6 @@
       text-align: center;
       margin: 1.5rem auto;
       width: 60%;
-
       &__btn {
         cursor: pointer;
         min-width: 100px;
@@ -51,6 +50,10 @@
         background-color: white;
         padding: 0.5rem 0.8rem;
         border-radius: 2rem;
+        & a {
+          color: inherit;
+          text-decoration: none;
+        }
       }
     }
   }

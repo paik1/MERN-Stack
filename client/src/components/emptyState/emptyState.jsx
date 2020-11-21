@@ -5,7 +5,7 @@ const emptyStateConstants = [
   {
     key: 'emp',
     image: 'remote-team.svg',
-    message: 'Oops, no emplyee present now!',
+    message: 'Oops, no employee present now!',
     desc: 'Add your employee details, by which they can to part of their job',
     btnMsg: 'Add Employee',
   },

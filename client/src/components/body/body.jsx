@@ -1,16 +1,13 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { Stocks } from '..';
-import Employee from '../employee/employee';
-import Suppliers from '../suppliers/suppliers';
-import Transactoins from '../transactoins/transactoins';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { Home, Stocks, Employee, Suppliers, Transactions } from '..';
 import './body.scss';
 
 const routes = [
   {
-    path: '/',
+    path: '/dashboard',
     exact: true,
-    main: () => <h2>Home</h2>,
+    main: () => <Home />,
   },
   {
     path: '/dashboard/stocks',
@@ -26,7 +23,7 @@ const routes = [
   },
   {
     path: '/dashboard/transactions',
-    main: () => <Transactoins />,
+    main: () => <Transactions />,
   },
 ];
 
@@ -42,6 +39,9 @@ function Body(props) {
             children={<route.main />}
           />
         ))}
+        <Route path='/'>
+          <Redirect exact to='/dashboard' />
+        </Route>
       </Switch>
     </div>
   );
