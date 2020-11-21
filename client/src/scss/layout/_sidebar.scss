@@ -25,7 +25,7 @@
 }
 
 .active-menu-item {
-  background-color: #eaecf0;
+  background-color: var(--light-menu-item-active);
   border-radius: 4px;
   & img {
     filter: invert(27%) sepia(192%) saturate(2959%) hue-rotate(207deg)

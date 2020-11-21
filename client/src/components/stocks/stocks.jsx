@@ -1,5 +1,4 @@
 import React from 'react';
-import './stocks.scss';
 import EmptyState from '../emptyState/emptyState';
 
 function Stocks() {

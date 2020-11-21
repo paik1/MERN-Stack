@@ -15,7 +15,6 @@ function Employee() {
       {uiStates.employee.addEmpDrawer && !uiStates.employee.editEmpDrawe && (
         <AddEmployee />
       )}
-      {/* <AddEmployee /> */}
       <EmptyState stateName={'emp'} actionMethod={addEmployee} />
     </div>
   );

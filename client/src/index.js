@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BaseRoute } from './pages';
-import './index.scss'
+import './scss/main.scss';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './pages/dashboard/dashboard';
