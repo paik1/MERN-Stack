@@ -1,7 +1,7 @@
 .manage-emp {
   position: absolute;
   z-index: 2;
-  background-color: #000000a3;
+  background-color: var(--light-overlay);
   margin: -20px;
   overflow: hidden !important;
   height: calc(100vh - 40px);
@@ -14,10 +14,23 @@
     width: 300px;
     padding: 12px;
 
-    & h2 {
-      font-family: var(--primary-font);
-      color: var(--light-second-dark);
-      font-weight: 600;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & h2 {
+        font-family: var(--primary-font);
+        color: var(--light-second-dark);
+        font-weight: 600;
+      }
+
+      & img {
+        cursor: pointer;
+        background-color: var(--light-btn-background);
+        padding: 4px;
+        border-radius: 4px;
+      }
     }
   }
 }

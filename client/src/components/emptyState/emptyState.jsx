@@ -32,7 +32,7 @@ const emptyStateConstants = [
   },
 ];
 
-const EmptyState = ({ stateName }) => {
+const EmptyState = ({ stateName, actionMethod }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -50,7 +50,11 @@ const EmptyState = ({ stateName }) => {
         />
         <h2>{data.message}</h2>
         <p>{data.desc}</p>
-        {data.btnMsg && <div className='empty__btn'>{data.btnMsg}</div>}
+        {data.btnMsg && (
+          <div className='empty__btn' onClick={actionMethod}>
+            {data.btnMsg}
+          </div>
+        )}
       </main>
     )
   );
