@@ -1,0 +1,27 @@
+.empty {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: var(--secondary-font);
+  color: var(--light-text-normal);
+  & img {
+    height: 340px;
+    width: 340px;
+  }
+  & h2 {
+    font-weight: 600;
+  }
+  & p {
+    margin: 12px;
+    font-weight: 500;
+  }
+  &__btn {
+    background-color: var(--light-text-active);
+    color: var(--light-menu-item-active);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
