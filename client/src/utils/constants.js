@@ -3,6 +3,12 @@ export const CommonConstants = {
   DEVELOPER_FIRM: 'SimplyPai',
 };
 
+export const EmployeeRoles = [
+  { id: 'COOWNER', name: 'coowner' },
+  { id: 'MANAGER', name: 'manager' },
+  { id: 'WORKER', name: 'worker' },
+];
+
 export const MenuItems = [
   {
     iconPath: require('../assets/icons/people-group.svg'),

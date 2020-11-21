@@ -1,23 +1,29 @@
 import React from 'react';
-import { ActionAddEmployeeUI } from '../../state/action';
-import useData from '../../state/dataLayer';
+import { SET_SHOW_ADD_EMPLOYEE } from '../../state/action';
+import { EmployeeRoles } from '../../utils/constants';
+import Drawer from '../drawer/drawer';
 
 function AddEmployee() {
-  const [, dispatch] = useData();
+  const addEmployee = () => console.log('Add Employee action');
 
   return (
-    <div className='action-drawer'>
-      <div className='action-drawer__div'>
-        <div className='action-drawer__div__header'>
-          <h2>Add Employee</h2>
-          <img
-            src={require('../../assets/icons/cross.svg')}
-            onClick={() => ActionAddEmployeeUI(dispatch, false)}
-            alt='close-drawer'
-          />
-        </div>
-      </div>
-    </div>
+    <Drawer
+      header='Add Employee'
+      btnLabel='Add'
+      btnAction={addEmployee}
+      actionType={SET_SHOW_ADD_EMPLOYEE}>
+      <input type='text' placeholder='Name' />
+      <input type='email' placeholder='Email Id' />
+      <input type='bumber' placeholder='Phone No' />
+      <input type='password' placeholder='Password' />
+      <select name='Select role' id='emp-role'>
+        {EmployeeRoles.map((role, index) => (
+          <option value={role.name} key={index}>
+            {role.name}
+          </option>
+        ))}
+      </select>
+    </Drawer>
   );
 }
 

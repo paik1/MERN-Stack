@@ -6,21 +6,22 @@
   overflow: hidden !important;
   height: calc(100vh - 40px);
   width: calc(100vw - 200px);
+  font-family: var(--primary-font);
 
   &__div {
     margin-left: auto;
+    @include drawer-transition;
+    margin-right: -50rem;
     height: inherit;
     background-color: var(--light-white);
     width: 300px;
     padding: 12px;
-
     &__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       & h2 {
-        font-family: var(--primary-font);
         color: var(--light-second-dark);
         font-weight: 600;
       }
@@ -30,6 +31,29 @@
         background-color: var(--light-btn-background);
         padding: 4px;
         border-radius: 4px;
+
+        &:hover {
+          @include scale-btn;
+        }
+      }
+    }
+
+    &__body {
+      margin: 1rem 0;
+      & input,
+      select {
+        @include custom-inputs;
+      }
+    }
+    &__footer {
+      & div {
+        background-color: var(--light-text-active);
+        color: var(--light-menu-item-active);
+        padding: 0.4rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        width: fit-content;
+        margin-left: auto;
       }
     }
   }

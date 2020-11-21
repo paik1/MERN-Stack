@@ -2,13 +2,10 @@
 @import './base/reset';
 @import './base/typography';
 
-// Component Styles
-@import './components/body';
-@import './components/employee';
-@import './components/emptyState';
-@import './components/stocks';
-@import './components/suppliers';
-@import './components/transactions';
+// Utils Style
+@import './utils/animations';
+@import './utils/mixins';
+@import './utils/variables';
 
 // Layout Styles
 @import './layout/header';
@@ -19,7 +16,10 @@
 @import './pages/dashboard';
 @import './pages/landing';
 
-// Utils Style
-@import './utils/animations';
-@import './utils/mixins';
-@import './utils/variables';
+// Component Styles
+@import './components/body';
+@import './components/employee';
+@import './components/emptyState';
+@import './components/stocks';
+@import './components/suppliers';
+@import './components/transactions';
