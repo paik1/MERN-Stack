@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './emptyState.scss';
 
 const emptyStateConstants = [
   {
@@ -32,13 +31,11 @@ const emptyStateConstants = [
   },
 ];
 
-const EmptyState = ({ stateName }) => {
+const EmptyState = ({ stateName, actionMethod }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    console.log(stateName);
     setData(emptyStateConstants.find(x => x.key === stateName));
-    console.log(data);
   }, []);
 
   return (
@@ -50,7 +47,11 @@ const EmptyState = ({ stateName }) => {
         />
         <h2>{data.message}</h2>
         <p>{data.desc}</p>
-        {data.btnMsg && <div className='empty__btn'>{data.btnMsg}</div>}
+        {data.btnMsg && (
+          <div className='empty__btn' onClick={actionMethod}>
+            {data.btnMsg}
+          </div>
+        )}
       </main>
     )
   );

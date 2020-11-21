@@ -1,0 +1,25 @@
+// Base Style
+@import './base/reset';
+@import './base/typography';
+
+// Utils Style
+@import './utils/animations';
+@import './utils/mixins';
+@import './utils/variables';
+
+// Layout Styles
+@import './layout/header';
+@import './layout/sidebar';
+@import './layout/drawer';
+
+// Pages Style
+@import './pages/dashboard';
+@import './pages/landing';
+
+// Component Styles
+@import './components/body';
+@import './components/employee';
+@import './components/emptyState';
+@import './components/stocks';
+@import './components/suppliers';
+@import './components/transactions';

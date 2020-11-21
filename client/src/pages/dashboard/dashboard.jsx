@@ -1,16 +1,19 @@
-import React, { Fragment } from 'react';
-import './dashboard.scss';
+import React  from 'react';
 import { Body, Header, Sidebar } from '../../components';
+import { DataLayer } from '../../state/dataLayer';
+import reducer, { initialState } from '../../state/reduce';
 
 function Dashboard() {
   return (
-    <div className='dashboard'>
-      <Header />
-      <div className='dashboard__body'>
-        <Sidebar />
-        <Body />
+    <DataLayer reduer={reducer} initialState={initialState}>
+      <div className='dashboard'>
+        <Header />
+        <div className='dashboard__body'>
+          <Sidebar />
+          <Body />
+        </div>
       </div>
-    </div>
+    </DataLayer>
   );
 }
 

@@ -1,0 +1,21 @@
+@mixin scale-btn {
+  transform: scale(1.1);
+  transition: transform 200ms ease-in;
+}
+
+@mixin drawer-transition {
+  transition: margin 1000ms ease-in;
+}
+
+
+@mixin custom-inputs {
+  width: -webkit-fill-available;
+  margin: 1rem 0;
+  padding: 0.6rem;
+  font-family: var(--primary-font);
+
+  &:focus {
+    outline: var(--light-text-active) auto 1px;
+  }
+}
+

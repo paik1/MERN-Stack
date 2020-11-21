@@ -1,7 +1,3 @@
-* {
-  margin: 0;
-}
-
 :root {
   // Light Theme Color
   --light-primary-dark: #243c8e;
@@ -9,12 +5,10 @@
   --light-primary: #f4f5f7;
   --light-white: #ffffff;
   --light-menu-item-active: #eaecf0;
+  --light-btn-background: #ebecf0;
 
   --light-text-normal: #42526e;
   --light-text-active: #0052cc;
 
-  // Common Variables
-  --primary-font: 'Raleway', sans-serif;
-  --secondary-font: 'Quicksand', sans-serif;
-  --tertiory-font: 'Poppins', sans-serif;
+  --light-overlay: #000000a3;
 }

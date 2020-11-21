@@ -1,5 +1,4 @@
 import React from 'react';
-import './transactions.scss';
 import EmptyState from '../emptyState/emptyState';
 
 function Transactions() {

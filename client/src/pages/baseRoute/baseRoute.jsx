@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Dashboard from '../dashboard/dashboard';
 import Landing from '../landing/landing';
 
 function BaseRoute() {
