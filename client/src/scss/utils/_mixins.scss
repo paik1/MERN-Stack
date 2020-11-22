@@ -17,3 +17,12 @@
     outline: var(--light-text-active) auto 1px;
   }
 }
+
+@mixin chip-style($color, $fontColor: var(--light-text-normal)) {
+  background-color: $color;
+  padding: 0.4rem;
+  border-radius: 4px;
+  font-size: 12px;
+  width: fit-content;
+  color: $fontColor;
+}
