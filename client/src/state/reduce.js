@@ -8,7 +8,7 @@ export const initialState = {
     },
   },
   data: {
-    employee: [1],
+    employee: [],
   },
 };
 

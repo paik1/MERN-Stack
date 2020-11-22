@@ -17,28 +17,43 @@ function Employee() {
       )}
 
       {data.employee.length > 0 ? (
-        <table className="custom-table">
-          <tr className="custom-table__head">
-            <th>Name</th>
-            <th>Role</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Actions</th>
-          </tr>
-          {data.employee.map((item, index) => (
-            <tr className="custom-table__body">
-              <td>Username</td>
-              <td className="custom-table__body__role"><span>
-                Manager</span></td>
-              <td>user@mail.com</td>
-              <td>+918989878766</td>
-              <td className="custom-table__body__actions">
-                <div className="custom-table__body__actions__update"><span>Update</span></div>
-                <div className="custom-table__body__actions__delete"><span>Delete</span></div>
-              </td>
-            </tr>
-          ))}
-        </table>
+        <div className='datatable'>
+          <div className='datatable__actions'>
+            <input type='text' placeholder='Search employee' />
+            <div className='datatable__actions__add' onClick={addEmployee}>Add Employee</div>
+          </div>
+          <table className='datatable__content'>
+            <thead>
+              <tr className='datatable__content__head'>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.employee.map((item, index) => (
+                <tr className='datatable__content__body' key={index}>
+                  <td>{item.name}</td>
+                  <td className='datatable__content__body__role'>
+                    <span>{item.role}</span>
+                  </td>
+                  <td>{item.email}</td>
+                  <td>{item.email}</td>
+                  <td className='datatable__content__body__actions'>
+                    <div className='datatable__content__body__actions__update'>
+                      <span>Update</span>
+                    </div>
+                    <div className='datatable__content__body__actions__delete'>
+                      <span>Delete</span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
         <EmptyState stateName={'emp'} actionMethod={addEmployee} />
       )}

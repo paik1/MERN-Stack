@@ -1,26 +1,49 @@
-.custom-table {
-  width: 100%;
+.datatable {
   font-family: var(--secondary-font);
-
-  &__head {
-    text-align: left;
-    color: var(--light-text-normal);
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & input {
+      @include custom-inputs;
+      width: 200px;
+    }
+    &__add {
+      cursor: pointer;
+      background-color: var(--light-btn-background);
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
   }
 
-  &__body {
-    margin: 4px 0;
-    &__role > span {
-      @include chip-style($color: #deebff);
-    }
-    &__actions {
-      display: flex;
+  &__content {
+    width: 100%;
+    border-spacing: 0 0.6rem;
 
-      &__update {
+    &__head {
+      text-align: left;
+      color: var(--light-text-normal);
+    }
+
+    &__body {
+      margin: 4px 0;
+      &__role > span {
         @include chip-style($color: #deebff);
-        margin-right: 4px;
       }
-      &__delete {
-        @include chip-style($color: #ffebe6, $fontColor: #bf2600);
+      &__actions {
+        display: flex;
+
+        &__update {
+          @include chip-style($color: #fff0b3);
+          margin-right: 4px;
+          cursor: pointer;
+        }
+        &__delete {
+          @include chip-style($color: #ffebe6, $fontColor: #bf2600);
+          cursor: pointer;
+        }
       }
     }
   }
