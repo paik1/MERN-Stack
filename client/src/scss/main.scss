@@ -7,10 +7,14 @@
 @import './utils/mixins';
 @import './utils/variables';
 
+// Vendors Style
+@import './vendor/tostify';
+
 // Layout Styles
 @import './layout/header';
 @import './layout/sidebar';
 @import './layout/drawer';
+@import './layout/table';
 
 // Pages Style
 @import './pages/dashboard';

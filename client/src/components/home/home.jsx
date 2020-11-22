@@ -1,16 +1,20 @@
 import React from 'react';
-import { ActionAddEmployeeUI } from '../../state/action';
-import useData from '../../state/dataLayer';
+import { Notification, warningToast } from '..';
 
 function Home() {
-  const [{ uiStates }, dispatch] = useData();
-
-  console.log(uiStates);
-  const updateState = () =>
-    ActionAddEmployeeUI(dispatch, !uiStates.employee.addEmpDrawer);
   return (
     <div>
       <p> Am in home</p>
+      <div
+        onClick={() =>
+          warningToast({
+            title: 'Title of the notification',
+            message: 'Description of the notifiaction',
+          })
+        }>
+        Show Notification
+      </div>
+      <Notification />
     </div>
   );
 }

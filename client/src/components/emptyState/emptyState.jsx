@@ -36,7 +36,7 @@ const EmptyState = ({ stateName, actionMethod }) => {
 
   useEffect(() => {
     setData(emptyStateConstants.find(x => x.key === stateName));
-  }, []);
+  }, [stateName]);
 
   return (
     data && (
