@@ -4,9 +4,8 @@
 }
 
 @mixin drawer-transition {
-  transition: margin 1000ms ease-in;
+  transition: margin 600ms ease-in-out;
 }
-
 
 @mixin custom-inputs {
   width: -webkit-fill-available;
@@ -18,4 +17,3 @@
     outline: var(--light-text-active) auto 1px;
   }
 }
-

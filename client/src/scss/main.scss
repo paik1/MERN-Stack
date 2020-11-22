@@ -7,6 +7,9 @@
 @import './utils/mixins';
 @import './utils/variables';
 
+// Vendors Style
+@import './vendor/tostify';
+
 // Layout Styles
 @import './layout/header';
 @import './layout/sidebar';
