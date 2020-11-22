@@ -1,4 +1,8 @@
-import { ADD_EMPLOYEE_DATA, SET_SHOW_ADD_EMPLOYEE } from './action';
+import {
+  ADD_EMPLOYEE_DATA,
+  SET_SHOW_ADD_EMPLOYEE,
+  SET_SHOW_EDIT_EMPLOYEE,
+} from './action';
 
 export const initialState = {
   uiStates: {
@@ -8,7 +12,44 @@ export const initialState = {
     },
   },
   data: {
-    employee: [],
+    employee: [
+      {
+        name: 'Abhin',
+        email: 'abhin@mail.com',
+        phone: '908928238',
+        role: 'Manager',
+      },
+      {
+        name: 'Kiran',
+        email: 'kir@mail.com',
+        phone: '908928238',
+        role: 'Manager',
+      },
+      {
+        name: 'Shivani',
+        email: 'didi@mail.com',
+        phone: '908928238',
+        role: 'Manager',
+      },
+      {
+        name: 'Varun',
+        email: 'vrn@mail.com',
+        phone: '908928238',
+        role: 'Manager',
+      },
+      {
+        name: 'Vaibhav',
+        email: 'vbh@mail.com',
+        phone: '908928238',
+        role: 'Manager',
+      },
+      {
+        name: 'Balu',
+        email: 'balu@mail.com',
+        phone: '908928238',
+        role: 'Manager',
+      },
+    ],
   },
 };
 
@@ -22,6 +63,17 @@ const reducer = (state, action) => {
           employee: {
             ...state.uiStates.employee,
             addEmpDrawer: action.payload.show,
+          },
+        },
+      };
+    case SET_SHOW_EDIT_EMPLOYEE:
+      return {
+        ...state,
+        uiStates: {
+          ...state.uiStates,
+          employee: {
+            ...state.uiStates.employee,
+            editEmpDrawe: action.payload.show,
           },
         },
       };

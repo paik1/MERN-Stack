@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
-import { ActionAddEmployeeUI, SET_SHOW_ADD_EMPLOYEE } from '../../state/action';
+import {
+  ActionAddEmployeeUI,
+  ActionEditEmployeeUI,
+  SET_SHOW_ADD_EMPLOYEE,
+  SET_SHOW_EDIT_EMPLOYEE,
+} from '../../state/action';
 import useData from '../../state/dataLayer';
 
 function Drawer({ header, actionType, btnLabel, btnAction, children }) {
@@ -14,6 +19,9 @@ function Drawer({ header, actionType, btnLabel, btnAction, children }) {
     switch (actionType) {
       case SET_SHOW_ADD_EMPLOYEE:
         ActionAddEmployeeUI(dispatch, false);
+        break;
+      case SET_SHOW_EDIT_EMPLOYEE:
+        ActionEditEmployeeUI(dispatch, false);
         break;
       default:
         return;
@@ -33,9 +41,7 @@ function Drawer({ header, actionType, btnLabel, btnAction, children }) {
         </div>
         <div className='action-drawer__div__body'>{children}</div>
         <footer className='action-drawer__div__footer'>
-          <div onClick={btnAction}>
-            {btnLabel}
-          </div>
+          <div onClick={btnAction}>{btnLabel}</div>
         </footer>
       </div>
     </div>

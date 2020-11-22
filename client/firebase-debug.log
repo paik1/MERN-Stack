@@ -1,0 +1,20 @@
+[debug] [2020-11-22T13:22:16.283Z] ----------------------------------------------------------------------
+[debug] [2020-11-22T13:22:16.285Z] Command:       /usr/local/Cellar/node/12.3.1/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-11-22T13:22:16.285Z] CLI Version:   7.16.0
+[debug] [2020-11-22T13:22:16.285Z] Platform:      darwin
+[debug] [2020-11-22T13:22:16.285Z] Node Version:  v12.3.1
+[debug] [2020-11-22T13:22:16.286Z] Time:          Sun Nov 22 2020 18:52:16 GMT+0530 (India Standard Time)
+[debug] [2020-11-22T13:22:16.286Z] ----------------------------------------------------------------------
+[debug] [2020-11-22T13:22:16.286Z] 
+[debug] [2020-11-22T13:22:16.298Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-11-22T13:22:16.298Z] > authorizing via signed-in user
+[debug] [2020-11-22T13:22:16.298Z] [iam] checking project simplypai-mern for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-11-22T13:22:16.302Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-11-22T13:22:16.302Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-11-22T13:22:46.363Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2020-11-22T13:22:46.365Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-11-22T13:22:46.365Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
