@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import {
-  ActionEditEmployeeUI,
-  SET_SHOW_EDIT_EMPLOYEE,
+  ActionAddEmpData,
+  ActionAddEmployeeUI,
+  SET_SHOW_ADD_EMPLOYEE,
 } from '../../state/action';
 import useData from '../../state/dataLayer';
 import { EmployeeRoles } from '../../utils/constants';
-import Drawer from '../drawer/drawer';
-import { successToast } from '../notification/notification';
+import Drawer from '../../components/drawer/drawer';
+import { successToast } from '../../components/notification/notification';
 
-function UpdateEmployee(props) {
+function AddEmployee() {
   const [empData, setEmpData] = useState({
     name: null,
     phone: null,
@@ -17,49 +18,45 @@ function UpdateEmployee(props) {
     password: null,
   });
   const [, dispatch] = useData();
-
-  const updateEmployee = () => {
-    ActionEditEmployeeUI(dispatch, false);
+  
+  const addEmployee = () => {
+    ActionAddEmpData(dispatch, empData);
+    ActionAddEmployeeUI(dispatch, false);
     successToast({
-      title: 'Update Employee details',
-      message: 'Employee details updated successfully',
+      title: 'Adding Employee',
+      message: 'Employee added successfully',
     });
   };
 
   return (
     <Drawer
-      header='Update Employee'
-      btnLabel='Update'
-      btnAction={updateEmployee}
-      actionType={SET_SHOW_EDIT_EMPLOYEE}>
+      header='Add Employee'
+      btnLabel='Add'
+      btnAction={addEmployee}
+      actionType={SET_SHOW_ADD_EMPLOYEE}>
       <input
         type='text'
         placeholder='Name'
-        value={props.name}
         onChange={e => setEmpData({ ...empData, name: e.target.value })}
       />
       <input
         type='email'
         placeholder='Email Id'
-        value={props.email}
         onChange={e => setEmpData({ ...empData, email: e.target.value })}
       />
       <input
         type='tel'
         placeholder='Phone No'
-        value={props.phone}
         onChange={e => setEmpData({ ...empData, phone: e.target.value })}
       />
       <input
         type='password'
         placeholder='Password'
-        value={props.password}
         onChange={e => setEmpData({ ...empData, password: e.target.value })}
       />
       <select
         name='Select role'
         id='emp-role'
-        value={props.role}
         onChange={e => setEmpData({ ...empData, role: e.target.value })}>
         <option value='Select Role' key='roles'>
           Select Role
@@ -74,4 +71,4 @@ function UpdateEmployee(props) {
   );
 }
 
-export default UpdateEmployee;
+export default AddEmployee;

@@ -1,5 +1,5 @@
 import React from 'react';
-import EmptyState from '../emptyState/emptyState';
+import { EmptyState } from '../../components';
 
 function Transactions() {
   return (

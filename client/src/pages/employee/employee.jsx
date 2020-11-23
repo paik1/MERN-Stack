@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import { useState } from 'react';
-import { EmptyState, Modal, Notification } from '..';
+import { EmptyState, Modal, Notification } from '../../components';
 import {
   ActionAddEmployeeUI,
   ActionDeleteEmployeeUI,
   ActionEditEmployeeUI,
 } from '../../state/action';
 import useData from '../../state/dataLayer';
-import ActionBar from '../actionBar/actionBar'
+import ActionBar from '../../components/actionBar/actionBar'
 import AddEmployee from './addEmployee';
 import UpdateEmployee from './updateEmployee';
 
