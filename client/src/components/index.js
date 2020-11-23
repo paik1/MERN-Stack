@@ -3,6 +3,7 @@ import Employee from './employee/employee';
 import EmptyState from './emptyState/emptyState';
 import Header from './header/header';
 import Home from './home/home';
+import Modal from './modal/modal';
 import Notification, {
   errorToast,
   successToast,
@@ -20,6 +21,7 @@ export {
   Body,
   Employee,
   Stocks,
+  Modal,
   EmptyState,
   Suppliers,
   Transactions,

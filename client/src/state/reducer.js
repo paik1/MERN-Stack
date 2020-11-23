@@ -1,6 +1,7 @@
 import {
   ADD_EMPLOYEE_DATA,
   SET_SHOW_ADD_EMPLOYEE,
+  SET_SHOW_DELETE_EMPLOYEE,
   SET_SHOW_EDIT_EMPLOYEE,
 } from './action';
 
@@ -8,7 +9,8 @@ export const initialState = {
   uiStates: {
     employee: {
       addEmpDrawer: false,
-      editEmpDrawe: false,
+      editEmpDrawer: false,
+      deleteEmpModal: false,
     },
   },
   data: {
@@ -73,7 +75,18 @@ const reducer = (state, action) => {
           ...state.uiStates,
           employee: {
             ...state.uiStates.employee,
-            editEmpDrawe: action.payload.show,
+            editEmpDrawer: action.payload.show,
+          },
+        },
+      };
+    case SET_SHOW_DELETE_EMPLOYEE:
+      return {
+        ...state,
+        uiStates: {
+          ...state.uiStates,
+          employee: {
+            ...state.uiStates.employee,
+            deleteEmpModal: action.payload.show,
           },
         },
       };

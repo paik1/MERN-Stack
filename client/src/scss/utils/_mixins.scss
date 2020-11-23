@@ -12,7 +12,8 @@
   margin: 1rem 0;
   padding: 0.6rem;
   font-family: var(--primary-font);
-
+  border-radius: 4px;
+  border: 0.4px solid var(--light-input-outline);
   &:focus {
     outline: var(--light-text-active) auto 1px;
   }
@@ -25,4 +26,17 @@
   font-size: 12px;
   width: fit-content;
   color: $fontColor;
+  cursor: pointer;
+  user-select: none;
+}
+
+@mixin overlay {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--light-overlay);
+  margin: -20px;
+  overflow: hidden !important;
+  height: calc(100vh - 40px);
+  width: calc(100vw - 200px);
+  font-family: var(--primary-font);
 }

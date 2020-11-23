@@ -1,12 +1,5 @@
 .action-drawer {
-  position: absolute;
-  z-index: 2;
-  background-color: var(--light-overlay);
-  margin: -20px;
-  overflow: hidden !important;
-  height: calc(100vh - 40px);
-  width: calc(100vw - 200px);
-  font-family: var(--primary-font);
+  @include overlay;
 
   &__div {
     margin-left: auto;

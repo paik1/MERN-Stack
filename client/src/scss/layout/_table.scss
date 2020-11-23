@@ -1,23 +1,5 @@
 .datatable {
   font-family: var(--secondary-font);
-  &__actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    & input {
-      @include custom-inputs;
-      width: 200px;
-    }
-    &__add {
-      cursor: pointer;
-      background-color: var(--light-btn-background);
-      padding: 10px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-  }
-
   &__content {
     width: 100%;
     border-spacing: 0 0.6rem;
