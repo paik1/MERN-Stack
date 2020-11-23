@@ -17,6 +17,7 @@ ReactDOM.render(
         <Switch>
           <Route path='/' component={Landing} exact />
           <Route path='/login' component={Landing} />
+          <Route path='/register' component={Landing} />
           <AuthRoute path='/dashboard'>
             <Dashboard />
           </AuthRoute>

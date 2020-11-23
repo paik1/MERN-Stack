@@ -1,22 +1,22 @@
 import React from 'react';
-import { Redirect, Route, useHistory } from 'react-router-dom';
-import { LandingModal, Loader } from '../../components';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { LandingModal } from '../../components';
+import { ActionAuthorized } from '../../state/action';
 import useData from '../../state/dataLayer';
 import { CommonConstants } from '../../utils/constants';
-import { ActionAuthorized } from '../../state/action';
-import { useState } from 'react';
 
-function Login() {
+function Register() {
   const [loader, setLoader] = useState(false);
   const [data, dispatch] = useData();
-  let history = useHistory();
+  const history = useHistory();
 
-  const loginUser = () => {
+  const registerOwner = () => {
     setLoader(true);
     setTimeout(() => {
       ActionAuthorized(dispatch, true);
       setLoader(false);
-      history.push('/dashboard');
+      history.push('/login');
     }, 1000);
   };
 
@@ -24,17 +24,19 @@ function Login() {
     <LandingModal
       isLoading={loader}
       size='small'
-      actionMethod={loginUser}
-      title={`Welcome back to ${CommonConstants.APP_NAME}`}
-      actionLabel='Login'>
+      actionMethod={registerOwner}
+      title={`Welcome to ${CommonConstants.APP_NAME}`}
+      actionLabel='Register'>
       <input
         type='text'
         className='custom-inputs'
         placeholder='Enter phone No'
       />
       <input type='email' placeholder='Enter password' />
+      <input type='tel' placeholder='Phone No' />
+      <input type='password' placeholder='Password' />
     </LandingModal>
   );
 }
 
-export default Login;
+export default Register;
