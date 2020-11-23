@@ -18,15 +18,15 @@
 @import './layout/modal';
 @import './layout/actionbar';
 
-
 // Pages Style
 @import './pages/dashboard';
 @import './pages/landing';
+@import './pages/stocks';
+@import './pages/suppliers';
+@import './pages/transactions';
+@import './pages/employee';
 
 // Component Styles
 @import './components/body';
-@import './components/employee';
 @import './components/emptyState';
-@import './components/stocks';
-@import './components/suppliers';
-@import './components/transactions';
+@import './components/nodata';

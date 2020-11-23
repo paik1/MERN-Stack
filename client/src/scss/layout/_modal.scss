@@ -1,19 +1,11 @@
 .modal {
   @include overlay;
   &__container {
+    @include center-div;
     padding: 1.4rem;
     background-color: var(--light-white);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    width: 600px;
     border-radius: 4px;
-
+    
     &__header {
       display: flex;
       align-items: center;

@@ -19,20 +19,20 @@ export const initialState = {
         name: 'Abhin',
         email: 'abhin@mail.com',
         phone: '908928238',
-        role: 'Manager',
+        role: 'Coowner',
       },
-      {
-        name: 'Kiran',
-        email: 'kir@mail.com',
-        phone: '908928238',
-        role: 'Manager',
-      },
-      {
-        name: 'Shivani',
-        email: 'didi@mail.com',
-        phone: '908928238',
-        role: 'Manager',
-      },
+      // {
+      //   name: 'Kiran',
+      //   email: 'kir@mail.com',
+      //   phone: '908928238',
+      //   role: 'Worker',
+      // },
+      // {
+      //   name: 'Shivani',
+      //   email: 'didi@mail.com',
+      //   phone: '908928238',
+      //   role: 'Worker',
+      // },
       {
         name: 'Varun',
         email: 'vrn@mail.com',
@@ -43,7 +43,7 @@ export const initialState = {
         name: 'Vaibhav',
         email: 'vbh@mail.com',
         phone: '908928238',
-        role: 'Manager',
+        role: 'Coowner',
       },
       {
         name: 'Balu',
