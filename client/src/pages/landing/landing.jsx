@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import { CommonConstants } from '../../utils/constants';
+import Login from '../login/login';
 
 function Landing() {
   return (
@@ -13,11 +14,16 @@ function Landing() {
         <p>Some puch word about the application and its usage</p>
         <div className='landing__body__btns'>
           <div className='landing__body__btns__btn'>Register</div>
-          <Link to='/dashboard'>
+          <Link to='/login'>
             <div className='landing__body__btns__btn'>Login</div>
           </Link>
         </div>
       </main>
+      <Switch>
+        <Route path='/login'>
+          <Login />
+        </Route>
+      </Switch>
     </div>
   );
 }

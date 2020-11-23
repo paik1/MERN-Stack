@@ -40,13 +40,7 @@
     }
     &__footer {
       & div {
-        background-color: var(--light-text-active);
-        color: var(--light-menu-item-active);
-        padding: 0.4rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-        width: fit-content;
-        margin-left: auto;
+        @include custom-active-btn
       }
     }
   }

@@ -56,3 +56,17 @@
   -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+
+@mixin custom-active-btn(
+  $color: var(--light-text-active),
+  $fontColor: var(--light-white)
+) {
+  background-color: $color;
+  color: $fontColor;
+  font-size: 14px;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: fit-content;
+  margin-left: auto;
+}

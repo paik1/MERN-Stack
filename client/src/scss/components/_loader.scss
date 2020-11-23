@@ -1,0 +1,7 @@
+.loader {
+  @include center-div;
+  padding: 1.4rem;
+  text-align: center;
+  background-color: var(--light-white);
+  border-radius: 4px;
+}

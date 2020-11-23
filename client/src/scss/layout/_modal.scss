@@ -5,7 +5,7 @@
     padding: 1.4rem;
     background-color: var(--light-white);
     border-radius: 4px;
-    
+
     &__header {
       display: flex;
       align-items: center;
@@ -22,6 +22,10 @@
       font-weight: 200;
       font-size: 14px;
       line-height: 1.8rem;
+
+      & input {
+        @include custom-inputs;
+      }
     }
 
     &__footer {
@@ -30,16 +34,36 @@
       align-items: center;
       font-size: 12px;
       font-weight: 500;
+
+      & a {
+        @include no-anchor-decoration;
+      }
+
       &__cancel {
         margin-right: 1rem;
-        cursor: pointer;
+        @include custom-active-btn(
+          var(--light-div-background),
+          var(--light-text-normal)
+        );
+      }
+
+      &__launch {
+        @include custom-active-btn();
+        margin-left: 4px;
       }
 
       &__delete {
-        @include chip-style(red, var(--light-white));
+        @include custom-active-btn(red, var(--light-white));
+        margin-left: 4px;
       }
     }
   }
+}
+
+.full-screen-modal {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
 }
 
 .modal-small {

@@ -3,6 +3,7 @@ import {
   SET_SHOW_ADD_EMPLOYEE,
   SET_SHOW_DELETE_EMPLOYEE,
   SET_SHOW_EDIT_EMPLOYEE,
+  SET_AUTHORIZED,
 } from './action';
 
 export const initialState = {
@@ -14,44 +15,8 @@ export const initialState = {
     },
   },
   data: {
-    employee: [
-      {
-        name: 'Abhin',
-        email: 'abhin@mail.com',
-        phone: '908928238',
-        role: 'Coowner',
-      },
-      // {
-      //   name: 'Kiran',
-      //   email: 'kir@mail.com',
-      //   phone: '908928238',
-      //   role: 'Worker',
-      // },
-      // {
-      //   name: 'Shivani',
-      //   email: 'didi@mail.com',
-      //   phone: '908928238',
-      //   role: 'Worker',
-      // },
-      {
-        name: 'Varun',
-        email: 'vrn@mail.com',
-        phone: '908928238',
-        role: 'Manager',
-      },
-      {
-        name: 'Vaibhav',
-        email: 'vbh@mail.com',
-        phone: '908928238',
-        role: 'Coowner',
-      },
-      {
-        name: 'Balu',
-        email: 'balu@mail.com',
-        phone: '908928238',
-        role: 'Manager',
-      },
-    ],
+    isAuthorized: false,
+    employee: [],
   },
 };
 
@@ -96,6 +61,15 @@ const reducer = (state, action) => {
         data: {
           ...state.data,
           employee: [...state.data.employee, action.payload.data],
+        },
+      };
+    case SET_AUTHORIZED:
+      console.log(action.payload.authorized);
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          isAuthorized: action.payload.authorized,
         },
       };
     default:

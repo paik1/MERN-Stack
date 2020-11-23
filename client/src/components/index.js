@@ -1,6 +1,8 @@
 import Body from './body/body';
 import EmptyState from './emptyState/emptyState';
 import Header from './header/header';
+import Loader from './loader/loader';
+import LandingModal from './modal/landingModal';
 import Modal from './modal/modal';
 import NoData from './noData/noData';
 import Notification, {
@@ -23,4 +25,6 @@ export {
   errorToast,
   Table,
   NoData,
+  LandingModal,
+  Loader
 };
