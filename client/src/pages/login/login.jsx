@@ -1,23 +1,30 @@
 import React from 'react';
-import { Redirect, Route, useHistory } from 'react-router-dom';
-import { LandingModal, Loader } from '../../components';
+import { useHistory } from 'react-router-dom';
+import { LandingModal } from '../../components';
 import useData from '../../state/dataLayer';
 import { CommonConstants } from '../../utils/constants';
 import { ActionAuthorized } from '../../state/action';
 import { useState } from 'react';
+import { login } from '../../service/authSvc';
 
 function Login() {
-  const [loader, setLoader] = useState(false);
-  const [data, dispatch] = useData();
-  let history = useHistory();
+  const [credential, setCredential] = useState({
+    phone: null,
+    password: null,
+  });
 
-  const loginUser = () => {
+  const [loader, setLoader] = useState(false);
+  const [, dispatch] = useData();
+  const history = useHistory();
+
+  const loginUser = async () => {
     setLoader(true);
-    setTimeout(() => {
+    let result = await login(credential);
+    setLoader(false);
+    if (result) {
       ActionAuthorized(dispatch, true);
-      setLoader(false);
       history.push('/dashboard');
-    }, 1000);
+    }
   };
 
   return (
@@ -28,11 +35,18 @@ function Login() {
       title={`Welcome back to ${CommonConstants.APP_NAME}`}
       actionLabel='Login'>
       <input
+        onChange={e => setCredential({ ...credential, phone: e.target.value })}
         type='text'
         className='custom-inputs'
         placeholder='Enter phone No'
       />
-      <input type='email' placeholder='Enter password' />
+      <input
+        onChange={e =>
+          setCredential({ ...credential, password: e.target.value })
+        }
+        type='email'
+        placeholder='Enter password'
+      />
     </LandingModal>
   );
 }

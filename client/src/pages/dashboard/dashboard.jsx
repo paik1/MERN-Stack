@@ -1,5 +1,5 @@
 import React from 'react';
-import { Body, Header, Sidebar } from '../../components';
+import { Body, Header, Notification, Sidebar } from '../../components';
 
 function Dashboard() {
   return (
@@ -9,6 +9,7 @@ function Dashboard() {
         <Sidebar />
         <Body />
       </div>
+      <Notification />
     </div>
   );
 }

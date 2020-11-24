@@ -64,7 +64,6 @@ const reducer = (state, action) => {
         },
       };
     case SET_AUTHORIZED:
-      console.log(action.payload.authorized);
       return {
         ...state,
         data: {

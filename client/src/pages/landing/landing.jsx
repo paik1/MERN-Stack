@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Login, Register } from '..';
+import { Notification } from '../../components';
 import { CommonConstants } from '../../utils/constants';
 
 function Landing() {
@@ -29,6 +30,7 @@ function Landing() {
           <Register />
         </Route>
       </Switch>
+      <Notification />
     </div>
   );
 }

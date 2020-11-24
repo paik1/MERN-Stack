@@ -133,7 +133,7 @@ function Employee() {
       ) : (
         <EmptyState stateName={'emp'} actionMethod={openAddEmpDrawer} />
       )}
-      <Notification />
+      {/* <Notification /> */}
     </Fragment>
   );
 }
