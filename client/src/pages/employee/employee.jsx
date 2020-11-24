@@ -1,13 +1,8 @@
 import React, { Fragment } from 'react';
 import { useState } from 'react';
+import { EmptyState, Modal, NoData, successToast } from '../../components';
 import {
-  EmptyState,
-  Modal,
-  NoData,
-  Notification,
-  successToast,
-} from '../../components';
-import {
+  ActionAddEmpData,
   ActionAddEmployeeUI,
   ActionDeleteEmployeeUI,
   ActionEditEmployeeUI,
@@ -18,16 +13,27 @@ import ActionBar from '../../components/actionBar/actionBar';
 import AddEmployee from './addEmployee';
 import UpdateEmployee from './updateEmployee';
 import { useEffect } from 'react';
+import { getAllEmployees } from '../../service/employeeSvc';
 
 function Employee() {
   const [{ uiStates, data }, dispatch] = useData();
-  const [employees, setEmployees] = useState(data.employee);
+  const [employees, setEmployees] = useState([]);
   const [selectedEmp, setSelectedEmp] = useState(null);
   const keys = ['Name', 'Role', 'Email', 'Phone', 'Actions'];
 
   useEffect(() => {
-    setEmployees(data.employee);
-  }, [data]);
+    if (data.employee.length === 0) {
+      getEmployees();
+    } else {
+      setEmployees([...data.employee]);
+    }
+  }, [data.employee]);
+
+  const getEmployees = async () => {
+    const empData = await getAllEmployees();
+    ActionAddEmpData(dispatch, empData);
+    setEmployees([...empData]);
+  };
 
   const openAddEmpDrawer = () => ActionAddEmployeeUI(dispatch, true);
 

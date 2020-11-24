@@ -4,7 +4,7 @@ import { get, post, resposeData } from './apiSvc';
 export const login = async body => {
   let result = resposeData(await post('auth/login', body));
   if (result) {
-    sessionStorage.setItem(CommonConstants.TOKEN, result.data.token);
+    sessionStorage.setItem(CommonConstants.TOKEN, result.token);
     return result;
   }
   return null;

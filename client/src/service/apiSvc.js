@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { errorToast, successToast } from '../components';
+import { errorToast } from '../components';
 import { ApiConstants, CommonConstants } from '../utils/constants';
 
 export const get = (endpoint, body) => {
@@ -9,38 +9,55 @@ export const get = (endpoint, body) => {
 };
 
 export const post = (endpoint, body) => {
-  return axios.post(
-    `${CommonConstants.API_BASE_URL}/${endpoint}`,
-    body,
-    getHeaders()
-  );
+  return axios.post(`${CommonConstants.API_BASE_URL}/${endpoint}`, body, {
+    headers: getHeaders(),
+  });
 };
 
+// This is the interceptor method which capture all the request made from axios and
+// Perform the centralized operations for internal server error and the unauthorized
 axios.interceptors.response.use(
-  response => {
-    if (response.status === ApiConstants.SUCCESS) {
-      successToast({
-        title: response.data.message,
-      });
-    }
-    return response;
-  },
+  response => response,
   error => {
-    const { status } = error.response;
+    console.log(error.response);
+    const { status, data } = error.response;
     if (status === ApiConstants.UNAUTHORIZED) {
       errorToast({
-        title: 'Invalid Credential',
-        message: 'Please try with valid credential',
+        title: data.message,
       });
       return error.response.status;
     }
+
+    if (status === ApiConstants['INTERNAL-SERVER-ERROR']) {
+      errorToast({
+        title: 'Something went wrong',
+        message: 'Please try after sometime!',
+      });
+      return error.response.status;
+    }
+
+    if (status === ApiConstants['BAD-REQUEST']) {
+      errorToast({
+        title: data.message,
+        message: 'Please validate the inputs',
+      });
+      return error.response.status;
+    }
+
     return Promise.reject(error);
   }
 );
 
 export const resposeData = response => {
   if (response && response?.status === 200 && response?.data) {
-    return response.data;
+    return response.data.data;
+  }
+  return null;
+};
+
+export const responseDataWithMessage = response => {
+  if (response && response?.status === 201 && response?.data) {
+    return response.data.message;
   }
   return null;
 };

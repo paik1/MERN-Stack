@@ -60,7 +60,7 @@ const reducer = (state, action) => {
         ...state,
         data: {
           ...state.data,
-          employee: [...state.data.employee, action.payload.data],
+          employee: [...action.payload.data],
         },
       };
     case SET_AUTHORIZED:
