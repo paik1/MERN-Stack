@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
+import { Login, Register } from '..';
+import { Notification } from '../../components';
 import { CommonConstants } from '../../utils/constants';
 
 function Landing() {
@@ -12,12 +14,23 @@ function Landing() {
         <h1>{CommonConstants.APP_NAME}</h1>
         <p>Some puch word about the application and its usage</p>
         <div className='landing__body__btns'>
-          <div className='landing__body__btns__btn'>Register</div>
-          <div className='landing__body__btns__btn'>
-            <Link to='/dashboard'>Login</Link>
-          </div>
+          <Link to='/register'>
+            <div className='landing__body__btns__btn'>Register</div>
+          </Link>
+          <Link to='/login'>
+            <div className='landing__body__btns__btn'>Login</div>
+          </Link>
         </div>
       </main>
+      <Switch>
+        <Route path='/login'>
+          <Login />
+        </Route>
+        <Route path='/register'>
+          <Register />
+        </Route>
+      </Switch>
+      <Notification />
     </div>
   );
 }

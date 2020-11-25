@@ -69,3 +69,17 @@ export const addActor = async (req, res) => {
     )
   }
 }
+
+export const getActors = async (req, res) => {
+  try {
+    const result = await ActorDataLayer.getMany()
+    if (result) {
+      return ApiResponse.successResponseWithData(res, 'Actors details', result)
+    } else {
+      return ApiResponse.notFoundResponse(res, 'Actors details not found')
+    }
+  } catch (error) {
+    console.error(error.message)
+    return ApiResponse.errorResponse(res, 'Error occured while getting actors')
+  }
+}

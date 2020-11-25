@@ -16,7 +16,7 @@ const toastBody = ({ title, message }, img) => (
     <img src={require(`../../assets/icons/${img}`)} alt='' />
     <div>
       <h3>{title}</h3>
-      <p>{message}</p>
+      {message && <p>{message}</p>}
     </div>
   </div>
 );

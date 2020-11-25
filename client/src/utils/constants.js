@@ -1,6 +1,8 @@
 export const CommonConstants = {
   APP_NAME: 'Application Name',
   DEVELOPER_FIRM: 'SimplyPai',
+  API_BASE_URL: 'http://localhost:5000/v1/api',
+  TOKEN: 'token'
 };
 
 export const EmployeeRoles = [
@@ -39,3 +41,14 @@ export const MenuItems = [
     link: 'transactions',
   },
 ];
+
+
+export const ApiConstants = {
+  'UNAUTHORIZED': 401,
+  'ACCESS-DENIED': 403,
+  'NOT-FOUND': 404,
+  'SUCCESS': 200,
+  'CREATED': 201,
+  'BAD-REQUEST': 400,
+  'INTERNAL-SERVER-ERROR': 500
+}

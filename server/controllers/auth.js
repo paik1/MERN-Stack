@@ -26,3 +26,6 @@ export const login = async (req, res) => {
     return ApiResponse.errorResponse(res, 'Error occured while login')
   }
 }
+
+export const isAutorized = (req, res) =>
+  successResponseWithData(res, 'Authorized user', { isAuthorized: true })

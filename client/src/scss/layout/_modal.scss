@@ -1,0 +1,82 @@
+.modal {
+  @include overlay;
+  &__container {
+    @include center-div;
+    padding: 1.4rem;
+    background-color: var(--light-white);
+    border-radius: 4px;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      & img {
+        filter: invert(23%) sepia(86%) saturate(7471%) hue-rotate(357deg)
+          brightness(114%) contrast(116%);
+        margin-right: 1rem;
+      }
+    }
+    &__body {
+      font-family: var(--tertiory-font);
+      margin-bottom: 1rem;
+      font-weight: 200;
+      font-size: 14px;
+      line-height: 1.8rem;
+
+      & input {
+        @include custom-inputs;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 500;
+
+      & a {
+        @include no-anchor-decoration;
+      }
+
+      &__cancel {
+        margin-right: 1rem;
+        @include custom-active-btn(
+          var(--light-div-background),
+          var(--light-text-normal)
+        );
+      }
+
+      &__launch {
+        @include custom-active-btn();
+        margin-left: 4px;
+      }
+
+      &__delete {
+        @include custom-active-btn(red, var(--light-white));
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.full-screen-modal {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+.modal-small {
+  width: 400px;
+  min-height: 200px;
+}
+
+.modal-medium {
+  width: 600px;
+  min-height: 300px;
+}
+
+.modal-large {
+  width: 1000px;
+  min-height: 500px;
+}

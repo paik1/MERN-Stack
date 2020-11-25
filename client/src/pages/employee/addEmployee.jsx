@@ -6,8 +6,9 @@ import {
 } from '../../state/action';
 import useData from '../../state/dataLayer';
 import { EmployeeRoles } from '../../utils/constants';
-import Drawer from '../drawer/drawer';
-import { successToast } from '../notification/notification';
+import Drawer from '../../components/drawer/drawer';
+import { successToast } from '../../components/notification/notification';
+import { addNewEmployee, getAllEmployees } from '../../service/employeeSvc';
 
 function AddEmployee() {
   const [empData, setEmpData] = useState({
@@ -18,13 +19,18 @@ function AddEmployee() {
     password: null,
   });
   const [, dispatch] = useData();
-  const addEmployee = () => {
-    ActionAddEmpData(dispatch, empData);
-    ActionAddEmployeeUI(dispatch, false);
-    successToast({
-      title: 'Adding Employee',
-      message: 'Employee added successfully',
-    });
+
+  const addEmployee = async () => {
+    let result = await addNewEmployee(empData);
+    if (result) {
+      const empData = await getAllEmployees();
+      ActionAddEmpData(dispatch, empData);
+      ActionAddEmployeeUI(dispatch, false);
+      successToast({
+        title: 'Adding Employee',
+        message: 'Employee added successfully',
+      });
+    }
   };
 
   return (

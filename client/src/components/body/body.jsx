@@ -1,12 +1,12 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { Home, Stocks, Employee, Suppliers, Transactions } from '..';
+import { Employee, Stats, Stocks, Suppliers, Transactions } from '../../pages';
 
 const routes = [
   {
     path: '/dashboard',
     exact: true,
-    main: () => <Home />,
+    main: () => <Stats />,
   },
   {
     path: '/dashboard/stocks',
@@ -26,7 +26,7 @@ const routes = [
   },
 ];
 
-function Body(props) {
+const Body = () => {
   return (
     <div className='content'>
       <Switch>
@@ -44,6 +44,6 @@ function Body(props) {
       </Switch>
     </div>
   );
-}
+};
 
 export default Body;

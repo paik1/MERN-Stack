@@ -1,26 +1,31 @@
-.custom-table {
-  width: 100%;
+.datatable {
   font-family: var(--secondary-font);
+  &__content {
+    width: 100%;
+    border-spacing: 0 0.6rem;
 
-  &__head {
-    text-align: left;
-    color: var(--light-text-normal);
-  }
-
-  &__body {
-    margin: 4px 0;
-    &__role > span {
-      @include chip-style($color: #deebff);
+    &__head {
+      text-align: left;
+      color: var(--light-text-normal);
     }
-    &__actions {
-      display: flex;
 
-      &__update {
+    &__body {
+      margin: 4px 0;
+      &__role > span {
         @include chip-style($color: #deebff);
-        margin-right: 4px;
       }
-      &__delete {
-        @include chip-style($color: #ffebe6, $fontColor: #bf2600);
+      &__actions {
+        display: flex;
+
+        &__update {
+          @include chip-style($color: #fff0b3);
+          margin-right: 4px;
+          cursor: pointer;
+        }
+        &__delete {
+          @include chip-style($color: #ffebe6, $fontColor: #bf2600);
+          cursor: pointer;
+        }
       }
     }
   }

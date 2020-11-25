@@ -1,0 +1,26 @@
+.actionbar {
+  display: flex;
+  align-items: center;
+
+  & input {
+    @include custom-inputs;
+    width: 200px;
+    margin-right: 4px;
+  }
+
+  & select {
+    @include custom-inputs;
+    width: fit-content;
+    background-color: var(--light-btn-background);
+    border: none;
+  }
+  &__primary__btn {
+    margin-left: auto;
+    cursor: pointer;
+    background-color: var(--light-btn-background);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
