@@ -6,7 +6,7 @@ import { CommonConstants } from '../../utils/constants';
 import { ActionAuthorized } from '../../state/action';
 import { useState } from 'react';
 import { login } from '../../service/authSvc';
-import { nullOrUndefinedObject } from '../../utils/helper';
+import { addErrorStyleToInput, nullOrUndefinedObject } from '../../utils/helper';
 
 function Login() {
   const [credential, setCredential] = useState({
@@ -29,6 +29,7 @@ function Login() {
         history.push('/dashboard');
       }
     } else {
+      addErrorStyleToInput('modal-body')
       errorToast({
         title: 'Invalid input',
         message: 'Please enter all fields to login',
@@ -54,6 +55,7 @@ function Login() {
           setCredential({ ...credential, password: e.target.value })
         }
         type='email'
+        className='custom-inputs'
         placeholder='Enter password'
       />
     </LandingModal>

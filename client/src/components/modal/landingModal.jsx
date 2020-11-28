@@ -19,7 +19,9 @@ function LandingModal({
           <div className='modal__container__header'>
             <h1>{title}</h1>
           </div>
-          <div className='modal__container__body'>{children}</div>
+          <div id='modal-body' className='modal__container__body'>
+            {children}
+          </div>
           <div className='modal__container__footer'>
             <Link to='/'>
               <div className='modal__container__footer__cancel'>Cancel</div>
