@@ -17,7 +17,7 @@ function LandingModal({
       ) : (
         <div className={`modal__container modal-${size}`}>
           <div className='modal__container__header'>
-            <h3>{title}</h3>
+            <h1>{title}</h1>
           </div>
           <div className='modal__container__body'>{children}</div>
           <div className='modal__container__footer'>

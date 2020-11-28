@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -12,12 +13,13 @@ function Register() {
   const history = useHistory();
 
   const registerOwner = () => {
-    setLoader(true);
-    setTimeout(() => {
-      ActionAuthorized(dispatch, true);
-      setLoader(false);
-      history.push('/login');
-    }, 1000);
+    Axios.get('https://ghcwhcww14.execute-api.us-east-1.amazonaws.com/dev/api').then(res => console.log(res))
+    // setLoader(true);
+    // setTimeout(() => {
+    //   ActionAuthorized(dispatch, true);
+    //   setLoader(false);
+    //   history.push('/login');
+    // }, 1000);
   };
 
   return (

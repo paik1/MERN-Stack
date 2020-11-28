@@ -70,3 +70,16 @@
   width: fit-content;
   margin-left: auto;
 }
+
+@mixin shake-effect {
+  position: relative;
+  animation: shake 0.12s linear;
+  animation-iteration-count: 3;
+}
+
+@mixin error-input {
+  border: 0.4px solid var(--common-danger) !important;
+  &:focus {
+    outline: var(--common-danger) auto 1px;
+  }
+}

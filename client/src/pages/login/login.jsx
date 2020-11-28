@@ -1,11 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { LandingModal } from '../../components';
+import { errorToast, LandingModal } from '../../components';
 import useData from '../../state/dataLayer';
 import { CommonConstants } from '../../utils/constants';
 import { ActionAuthorized } from '../../state/action';
 import { useState } from 'react';
 import { login } from '../../service/authSvc';
+import { nullOrUndefinedObject } from '../../utils/helper';
 
 function Login() {
   const [credential, setCredential] = useState({
@@ -18,12 +19,20 @@ function Login() {
   const history = useHistory();
 
   const loginUser = async () => {
-    setLoader(true);
-    let result = await login(credential);
-    setLoader(false);
-    if (result) {
-      ActionAuthorized(dispatch, true);
-      history.push('/dashboard');
+    console.log(nullOrUndefinedObject(credential));
+    if (!nullOrUndefinedObject(credential)) {
+      setLoader(true);
+      let result = await login(credential);
+      setLoader(false);
+      if (result) {
+        ActionAuthorized(dispatch, true);
+        history.push('/dashboard');
+      }
+    } else {
+      errorToast({
+        title: 'Invalid input',
+        message: 'Please enter all fields to login',
+      });
     }
   };
 
